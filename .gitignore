@@ -3,6 +3,8 @@
 *.gise
 *.xreport
 *.projectmgr
+_xmsgs/
+iseconfig/
 #################
 ## Eclipse
 #################
