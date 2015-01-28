@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-01-27T17:16:06</DateModified>
+  <DateModified>2015-01-27T18:19:54</DateModified>
   <ModuleName>top_level</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>I:/ece554/mini_spart/iseconfig/top_level.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>I:/ece554/mini_spart</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>I:/ece554/mini_spart\</ImplementationReportsDirectory>
   <DateInitialized>2015-01-27T17:16:06</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
