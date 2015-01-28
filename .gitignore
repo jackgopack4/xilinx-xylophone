@@ -5,6 +5,7 @@
 *.projectmgr
 _xmsgs/
 iseconfig/
+*.html
 #################
 ## Eclipse
 #################
