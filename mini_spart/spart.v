@@ -31,5 +31,18 @@ module spart(
     input rxd
     );
 
+    bus_interface bus0( .iocs(),
+                        .iorw(),
+                        .ioaddr(),
+                        .rda(),
+                        .tbr(),
+                        .databus(),
+                        .data_in(),
+                        .data_out(),
+                        .wrt_db_low(),
+                        .wrt_db_high(),
+                        .wrt_tx()
+                        );
+
 
 endmodule
