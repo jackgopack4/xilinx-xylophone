@@ -30,18 +30,38 @@ module spart(
     output txd,
     input rxd
     );
+	 
+	reg [7:0] a,b;
+	wire [7:0] databus_out, bus_interface_out;
+	wire sel, wrt_db_low, wrt_db_high, wrt_tx;
 
-    bus_interface bus0( .iocs(),
-                        .iorw(),
-                        .ioaddr(),
-                        .rda(),
-                        .tbr(),
-                        .databus(),
-                        .data_in(),
-                        .data_out(),
-                        .wrt_db_low(),
-                        .wrt_db_high(),
-                        .wrt_tx()
+	// Select high when writing to databus
+	// reading from databus
+	assign databus = sel ? a : 8'bz;
+	
+	always @ (posedge clk, posedge rst)
+		if(rst) begin
+			a <= 8'h00;
+			b <= 8'h00;
+		end
+		else begin
+			a <= databus_out;
+			b <= databus;
+		end		
+
+    bus_interface bus0( .iocs(iocs),
+                        .iorw(iorw),
+                        .ioaddr(ioaddr),
+                        .rda(rda),
+                        .tbr(tbr),
+                        .databus_in(b),
+								.databus_out(databus_out),
+                        .data_in(), // TODO: From RX
+                        .data_out(bus_interface_out),
+                        .wrt_db_low(wrt_db_low),
+                        .wrt_db_high(wrt_db_high),
+                        .wrt_tx(wrt_tx),
+								.databus_sel(sel)
                         );
 
 
