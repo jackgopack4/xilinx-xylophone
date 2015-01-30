@@ -8,7 +8,7 @@ module driver_tb();
     wire [1:0] ioaddr_mon;
     wire [7:0] databus_inout;
 
-    assign databus_inout = (databus_oe) ? databus_out : 6'hz;
+    assign databus_inout = (databus_oe) ? databus_out : 8'hz;
 
 	module driver driver0(	.clk(stm_clk),
 						.rst(stm_rst),
