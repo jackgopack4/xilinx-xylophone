@@ -1,13 +1,14 @@
 ////////////////////////////////////////////////////////
 // RS-232 TX module
 // The RS-232 settings are fixed
-// 8-bit data, 2 stop, no-parity
+// Start, 8-bit data, two stop
 
 ////////////////////////////////////////////////////////
 module tx(
 	input clk,
+	input rst_n,
 	input TxD_start,
-	input BitTick,
+	input Enable,
 	input [7:0] TxD_data,
 	output TxD,
 	output TBR
@@ -16,34 +17,68 @@ module tx(
 // Assert TxD_start for (at least) one clock cycle to start transmission of TxD_data
 // TxD_data is latched so that it doesn't have to stay valid while it is being sent
 
-reg [3:0] TxD_state = 0;
+reg TxD_state;
 wire TBR = (TxD_state==0);
+reg [3:0] EnableCnt;
+reg [3:0] StateCnt;
+reg Sample;
+
+always @(posedge clk, negedge rst_n) begin
+	if(!rst_n) begin
+		Sample <= 0;
+		EnableCnt <= 0;
+		StateCnt <= 0;
+		TxD_state <= 1'b0;
+	end
+	Sample <= 0;
+	if(Enable) begin
+		if(EnableCnt == 15) begin
+			EnableCnt <= 0;
+			Sample <= 1;
+		end
+		else begin
+			EnableCnt <= EnableCnt + 1;
+		end
+		$display("EnableCnt = %b", EnableCnt);
+	end
+	if(Sample) begin
+		if(StateCnt == 4'b1010) begin
+			StateCnt <= 0;
+		end
+		else begin
+			if(TxD_state == 1'b1) begin
+				StateCnt <= StateCnt + 1;
+				TxD_shift <= (TxD_shift >> 1);
+			end
+		end
+		$display("StateCnt = %b", StateCnt);
+	end
+	if(TBR & TxD_start)
+		TxD_shift <= TxD_data;
+		$display("data latched");
+end
 
 reg [7:0] TxD_shift = 0;
-always @(posedge clk)
+always @(posedge clk, negedge rst_n)
 begin
+	if(!rst_n) begin
+		TxD_state <= 1'b0;
+	end
 	if(TBR & TxD_start)
 		TxD_shift <= TxD_data;
 	else
-	if(TxD_state[3] & BitTick)
+	if(TxD_state == 1'b1; & Sample)
 		TxD_shift <= (TxD_shift >> 1);
 
 	case(TxD_state)
-		4'b0000: if(TxD_start) TxD_state <= 4'b0100;
-		4'b0100: if(BitTick) TxD_state <= 4'b1000;  // start bit
-		4'b1000: if(BitTick) TxD_state <= 4'b1001;  // bit 0
-		4'b1001: if(BitTick) TxD_state <= 4'b1010;  // bit 1
-		4'b1010: if(BitTick) TxD_state <= 4'b1011;  // bit 2
-		4'b1011: if(BitTick) TxD_state <= 4'b1100;  // bit 3
-		4'b1100: if(BitTick) TxD_state <= 4'b1101;  // bit 4
-		4'b1101: if(BitTick) TxD_state <= 4'b1110;  // bit 5
-		4'b1110: if(BitTick) TxD_state <= 4'b1111;  // bit 6
-		4'b1111: if(BitTick) TxD_state <= 4'b0010;  // bit 7
-		4'b0010: if(BitTick) TxD_state <= 4'b0011;  // stop1
-		4'b0011: if(BitTick) TxD_state <= 4'b0000;  // stop2
-		default: if(BitTick) TxD_state <= 4'b0000;
+		1'b0: if(TxD_start) TxD_state <= 1'b1; // idle
+		1'b1: if(Sample) begin // transmit
+			if(StateCnt < 10) TxD_state <= 1'b1;
+			else TxD_state <= 1'b0
+		end
+		default: TxD_state <= 1'b0;
 	endcase
 end
 
-assign TxD = (TxD_state<4) | (TxD_state[3] & TxD_shift[0]);  // put together the start, data and stop bits
+assign TxD = (TxD_state == 1'b1 && !(StateCnt >= 4'b1001) && (StateCnt == 4'b0001 | TxD_shift[0]));  // put together the start, data and stop bits
 endmodule
