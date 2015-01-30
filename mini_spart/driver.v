@@ -22,32 +22,35 @@ module driver(
     input clk,
     input rst,
     input [1:0] br_cfg,
-    output iocs,
-    output iorw,
+    output reg iocs,
+    output reg iorw,
     input rda,
     input tbr,
-    output [1:0] ioaddr,
+    output reg [1:0] ioaddr,
     inout [7:0] databus
     );
 	 
 	 reg baud_rate;
 	 reg [2:0] state, nxt_state;
-	 wire sel,wrt_rx_data;
+	 reg sel,wrt_rx_data;
 	 
 	// localparam IDLE = 3'b000;
 	 localparam INIT_LOW_DB = 2'b00;
 	 localparam INIT_HIGH_DB = 2'b01;
-	 localparam RECEIVE = 2'b10;
+	 localparam RECEIVE = 2'b11;
    // localparam TRANSMIT = 3'b100;
-	 localparam RECEIVE_WAIT = 2'b11;
+	 localparam RECEIVE_WAIT = 2'b10;
 	 //localparam TRANSMIT_WAIT = 3'b110;
 	 
 	 
-	 reg [7:0] a,b, data_out, rx_data;
+	 reg [7:0] a, data_out, rx_data;
+	 wire [7:0] b;
 	// Select high when writing to databus
 	// reading from databus
-	assign databus = sel ? a : 8'bz;
+	assign databus = sel ? data_out : 8'bz;
+	assign b = databus;
 	
+/*
 	always @ (posedge clk, posedge rst) begin
 	
 		if(rst) begin
@@ -60,6 +63,7 @@ module driver(
 			end		
 		
 		end
+*/
 		
 	always  @ (posedge clk, posedge rst) begin
 		if(rst)
@@ -108,7 +112,7 @@ module driver(
 			INIT_LOW_DB: begin 
 					ioaddr = 2'b10;
 					sel = 1;
-					nxt_state = INIT_DB_HIGH;
+					nxt_state = INIT_HIGH_DB;
 					case(br_cfg)	
 						2'b00: 
 								data_out = 8'hc0;		//baud rate to 4800
@@ -121,10 +125,10 @@ module driver(
 					endcase	
 			end
 			
-			INIT_DB_HIGH: begin
+			INIT_HIGH_DB: begin
 					ioaddr = 2'b11;
 					sel = 1;
-					nxt_state = RECEIVE;
+					nxt_state = RECEIVE_WAIT;
 					case(br_cfg)	
 						2'b00: 
 								data_out = 8'h12;		//baud rate to 4800
@@ -138,7 +142,7 @@ module driver(
 			end
 			
 			RECEIVE_WAIT: begin
-					if(!rda) begin
+					if(~rda) begin
 						nxt_state = RECEIVE_WAIT;
 						ioaddr = 2'b00;
 					end
@@ -150,13 +154,14 @@ module driver(
 			
 			RECEIVE: begin
 				if(tbr) begin
-					nxt_state = RECIEVE_WAIT;					
+					nxt_state = RECEIVE_WAIT;					
 					ioaddr = 2'b00;
 					iorw = 0;
 					data_out = rx_data;
+					sel = 1;
 				end
 				else begin
-					nxt_state = RECIEVE;
+					nxt_state = RECEIVE;
 				end
 			end
 		endcase
