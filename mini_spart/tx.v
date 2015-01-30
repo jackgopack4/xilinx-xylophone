@@ -3,36 +3,26 @@
 // The RS-232 settings are fixed
 // 8-bit data, 2 stop, no-parity
 
-//`define SIMULATION   // in this mode, TX outputs one bit per clock cycle
-                       // and RX receives one bit per clock cycle (for fast simulations)
-
 ////////////////////////////////////////////////////////
 module tx(
 	input clk,
 	input TxD_start,
+	input BitTick,
 	input [7:0] TxD_data,
 	output TxD,
-	output TxD_busy
+	output TBR
 );
 
 // Assert TxD_start for (at least) one clock cycle to start transmission of TxD_data
 // TxD_data is latched so that it doesn't have to stay valid while it is being sent
 
-parameter ClkFrequency = 25000000;	// 25MHz
-parameter Baud = 115200;
-
-generate
-	if(ClkFrequency<Baud*8 && (ClkFrequency % Baud!=0)) ASSERTION_ERROR PARAMETER_OUT_OF_RANGE("Frequency incompatible with requested Baud rate");
-endgenerate
-
 reg [3:0] TxD_state = 0;
-wire TxD_ready = (TxD_state==0);
-assign TxD_busy = ~TxD_ready;
+wire TBR = (TxD_state==0);
 
 reg [7:0] TxD_shift = 0;
 always @(posedge clk)
 begin
-	if(TxD_ready & TxD_start)
+	if(TBR & TxD_start)
 		TxD_shift <= TxD_data;
 	else
 	if(TxD_state[3] & BitTick)
