@@ -1,4 +1,6 @@
-## XILINX ##
+############
+## XILINX 
+############
 *.xise
 *.gise
 *.xreport
@@ -6,6 +8,13 @@
 _xmsgs/
 iseconfig/
 *.html
+#############
+##Modelsim
+#############
+.mti
+.mpf
+.wlf
+work/
 #################
 ## Eclipse
 #################

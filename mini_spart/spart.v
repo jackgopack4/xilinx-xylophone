@@ -33,7 +33,7 @@ module spart(
 	 
 	reg [7:0] a,b;
 	wire [7:0] databus_out, bus_interface_out;
-	wire sel, wrt_db_low, wrt_db_high, wrt_tx;
+	wire sel, wrt_db_low, wrt_db_high, wrt_tx, tx_rx_en;
 
 	// Select high when writing to databus
 	// reading from databus
@@ -63,6 +63,14 @@ module spart(
                         .wrt_tx(wrt_tx),
 								.databus_sel(sel)
                         );
+								
+	baud_rate_gen baud0(	.clk(clk), 
+								.rst(rst), 
+								.en(tx_rx_en), 
+								.data(b), 
+								.sel_low(wrt_db_low), 
+								.sel_high(wrt_db_high)
+								);
 
 
 endmodule

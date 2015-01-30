@@ -23,7 +23,7 @@ module baud_rate_gen(
 	//output rx_ben, 
 	input clk, 
 	input rst, 
-	output en, 
+	output reg en, 
 	input [7:0] data, 
 	input sel_low, 
 	input sel_high
@@ -31,9 +31,10 @@ module baud_rate_gen(
 
 reg [15:0] divisor_buffer;
 reg state, nxt_state;
-reg [11:0] counter;
+reg load_counter, en_counter;
+reg [11:0] counter, counter_start;
 
-wire load_counter, en_counter;
+
 
 localparam SEND_SIGNAL = 0;
 localparam WAIT = 1;
@@ -61,7 +62,7 @@ always @ (posedge clk, posedge rst)
 		counter <= counter - 1;
 		
 always @ (*) begin
-	counter_start = 12'h000;
+	counter_start = 0;
 	case(divisor_buffer[15:12])
 		4'h1 : counter_start = 12'h515;
 		4'h2 : counter_start = 12'h28A;
