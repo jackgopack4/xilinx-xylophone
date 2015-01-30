@@ -5,13 +5,13 @@ module bus_interface(
 	input rda,
 	input tbr,
 	input [7:0] databus_in,
-	output [7:0] databus_out,
+	output reg [7:0] databus_out,
 	input [7:0] data_in,
-	output [7:0] data_out,
-	output wrt_db_low,
-	output wrt_db_high,
-	output wrt_tx,
-	output databus_sel
+	output reg [7:0] data_out,
+	output reg wrt_db_low,
+	output reg wrt_db_high,
+	output reg wrt_tx,
+	output reg databus_sel
 	);
 	
 	always @ (*) begin

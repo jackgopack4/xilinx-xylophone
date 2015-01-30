@@ -67,9 +67,18 @@ module spart(
 	baud_rate_gen baud0(	.clk(clk), 
 								.rst(rst), 
 								.en(tx_rx_en), 
-								.data(b), 
+								.data(bus_interface_out), 
 								.sel_low(wrt_db_low), 
 								.sel_high(wrt_db_high)
+								);
+								
+						 tx0( .clk(clk),
+								.rst_n(rst),
+								.TxD_start(wrt_tx),
+								.Enable(tx_rx_en),
+								.TxD_data(bus_interface_out),
+								.TxD(),	//TODO
+								.TBR(tbr)
 								);
 
 
