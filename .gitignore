@@ -16,9 +16,9 @@ iseconfig/
 #############
 ##Modelsim
 #############
-.mti
-.mpf
-.wlf
+*.mti
+*.mpf
+*.wlf
 work/
 #################
 ## Eclipse
