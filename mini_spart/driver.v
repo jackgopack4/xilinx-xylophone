@@ -67,6 +67,13 @@ module driver(
 		else if (wrt_rx_data)
 			rx_data <= b;
 	end
+	
+	always @ (posedge clk, posedge rst) begin
+		if(rst)
+			state <= 2'b00;
+		else
+			state <= nxt_state;
+	end
 
 	 
 	 always@(*) begin
