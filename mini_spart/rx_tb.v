@@ -1,9 +1,9 @@
 module rx_tb();
-	reg clk, rst, RxD, Baud;
+	reg clk, rst, RxD, Baud, rd_rx;
 	wire [7:0] RxD_data;
 	wire RDA;
 
-	rx iDUT(clk, rst, RxD, Baud, RxD_data, RDA);
+	rx iDUT(clk, rst, RxD, Baud, RxD_data, RDA, rd_rx);
 	initial begin
 		$dumpfile("test_rx.vcd");
 		$dumpvars(0, iDUT);
@@ -11,6 +11,7 @@ module rx_tb();
 		rst = 1;
 		RxD = 1;
 		Baud = 0;
+		rd_rx = 0;
 		#12;
 		rst = 0;
 		#3;
@@ -40,7 +41,9 @@ module rx_tb();
 		#480; // Stop 2
 		$display("second stop bit sent");
 		// send second data
+		rd_rx = 1;
 		#1000;
+		rd_rx = 0;
 		RxD = 0; // Start bit
 		#480;
 		RxD = 0; // bit 0
@@ -64,6 +67,7 @@ module rx_tb();
 		#480;
 		#480; // Stop 2
 		$display("second stop bit sent");
+		rd_rx = 1;
 		$stop;
 		$finish;
 	end

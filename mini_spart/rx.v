@@ -1,20 +1,22 @@
+`timescale 1ns / 1ps
 module rx(
 		clk,
 		rst,
 		RxD,
 		Baud,
 		RxD_data,
-		RDA
+		RDA,
+		rd_rx
 		);
 	////////////
 	// Inputs //
 	////////////
-	input clk, rst, RxD, Baud;
+	input clk, rst, RxD, Baud, rd_rx;
 
 	/////////////
 	// Outputs //
 	/////////////
-	output reg [7:0] RxD_data;
+	output [7:0] RxD_data;
 	output reg RDA;
 
 	////////////
@@ -23,13 +25,14 @@ module rx(
 	parameter IDLE = 2'b00;
 	parameter STRTBIT = 2'b01;
 	parameter RCV = 2'b10;
-	parameter WAIT_RDY = 2'b11;
+	parameter DONE = 2'b11;
 	reg [1:0] state, nxt_state;
 
 	///////////////
 	// Registers //
 	///////////////
 	reg RxD_ff1, RxD_ff2;
+	reg shift;
 	reg [7:0] RxD_shift;
 	reg [3:0] bit_cnt;
 	reg [4:0] baud_cnt;
@@ -38,7 +41,17 @@ module rx(
 	// Signals //
 	/////////////
 	wire negedgeRxD;
-	reg rst_bit_cnt, rst_baud_cnt, set_output;
+	reg rst_bit_cnt, rst_baud_cnt;
+
+	// shift when baud cnt = 16;
+	// assign shift = (baud_cnt == 5'b10000);
+	// buffer for shift is 4 baud ticks (1/4 of period)
+	assign strt_shift = (baud_cnt == 5'b01000);
+	// Detect negative edge of RX for start signal
+	assign negedgeRxD = (~RxD_ff1 && RxD_ff2);
+	// Set output data
+	assign RxD_data = RxD_shift;
+
 	////////////////////
 	// Double flop RX //
 	////////////////////
@@ -65,22 +78,13 @@ module rx(
 		end
 	end
 
-	// set RxD_data to rx shift register
-	always@(posedge clk, posedge rst) begin
-		if(rst) begin
-			RxD_data <= 8'h00;
-		end
-		else if(set_output) RxD_data <= RxD_shift;
-	end
-
-	// Detect negative edge of RX for start signal
-	assign negedgeRxD = (~RxD_ff1 && RxD_ff2);
-
 	////////////////////
 	// Bit counter FF //
 	////////////////////
 	always@(posedge clk, posedge rst) begin
-		if(rst_bit_cnt | rst) begin
+		if(rst)
+			bit_cnt <= 4'h0;
+		else if(rst_bit_cnt) begin
 			bit_cnt <= 4'h0;
 		end
 		else if(shift) begin
@@ -92,18 +96,15 @@ module rx(
 	// Baud tick counter FF //
 	//////////////////////////
 	always@(posedge clk, posedge rst) begin
-		if(rst_baud_cnt | rst | (baud_cnt == 5'b10000)) begin
+		if(rst)
+			baud_cnt <= 5'h0;
+		else if(rst_baud_cnt) begin
 			baud_cnt <= 5'h0;
 		end
 		else if(Baud) begin
 			baud_cnt <= baud_cnt + 1;
 		end
 	end
-
-	// shift when baud cnt = 16;
-	assign shift = (baud_cnt == 5'b10000);
-	// buffer for shift is 4 baud ticks (1/4 of period)
-	assign strt_shift = (baud_cnt == 5'b01000);
 
 	//////////////
 	// State FF //
@@ -120,36 +121,45 @@ module rx(
 	always@(*) begin
 		rst_bit_cnt = 0;
 		rst_baud_cnt = 0;
-		RDA = 1;
-		set_output = 0;
+		RDA = 0;
+		nxt_state = IDLE;
+		shift = 0;
+		
 		case(state)
 			IDLE: begin
-				rst_baud_cnt = 0;
 				if(negedgeRxD) begin
-					RDA = 0;
 					nxt_state = STRTBIT;
 				end
-				else nxt_state = IDLE;
 			end
 			STRTBIT: begin
-				RDA = 0;
-				set_output = 1;
 				if(strt_shift) begin
 					rst_baud_cnt = 1;
+					shift = 1;
 					rst_bit_cnt = 1;
 					nxt_state = RCV;
 				end
 				else nxt_state = STRTBIT;
 			end
 			RCV: begin
-				RDA = 0;
-				set_output = 1;
-				if(shift) rst_baud_cnt = 1;
-				if(bit_cnt == 4'h8) begin
+				if(baud_cnt == 5'b10000) begin
+					shift = 1;
 					rst_baud_cnt = 1;
-					nxt_state = IDLE;
+					if(bit_cnt == 4'h7) begin
+						nxt_state = DONE;
+					end
+					else begin
+						nxt_state = RCV;
+					end
 				end
 				else nxt_state = RCV;
+			end
+			DONE : begin
+				if(rd_rx)
+					nxt_state = IDLE;
+				else begin
+					nxt_state = DONE;
+					RDA = 1;
+				end
 			end
 		endcase
 	end
