@@ -28,7 +28,8 @@ module spart(
     input [1:0] ioaddr,
     inout [7:0] databus,
     output txd,
-    input rxd
+    input rxd,
+	output tx_rx_en_out		// Used for testing
     );
 	 
 	reg [7:0] a,b;
@@ -49,6 +50,10 @@ module spart(
 			b <= databus;
 		end		
 
+	// Testing //
+	/////////////
+	assign tx_rx_en_out = tx_rx_en;
+
     bus_interface bus0( .iocs(iocs),
                         .iorw(iorw),
                         .ioaddr(ioaddr),
@@ -61,7 +66,7 @@ module spart(
                         .wrt_db_low(wrt_db_low),
                         .wrt_db_high(wrt_db_high),
                         .wrt_tx(wrt_tx),
-								.rd_rx(rd_rx)
+								.rd_rx(rd_rx),
 								.databus_sel(sel)
                         );
 								

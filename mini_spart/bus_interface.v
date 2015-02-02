@@ -28,6 +28,7 @@ module bus_interface(
 				2'b00 : begin
 					// Recieve Buffer
 					if(iorw) begin
+						databus_sel = 1;
 						databus_out = data_in;
 						rd_rx = 1;
 					end
@@ -39,6 +40,7 @@ module bus_interface(
 				end
 				2'b01 : begin
 					if(iorw) begin
+						databus_sel = 1;
 						databus_out = {6'b000000, rda, tbr};
 					end
 				end

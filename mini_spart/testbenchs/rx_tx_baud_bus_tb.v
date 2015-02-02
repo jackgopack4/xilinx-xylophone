@@ -78,7 +78,7 @@ initial begin
 	stm_databus_in = 8'h80;
 
 	 @(posedge stm_clk);
-	stm_ioaddr = 2'b10;
+	stm_ioaddr = 2'b11;
 	stm_databus_in = 8'h25;
 
 	// Write to TX (Will send to RX)
