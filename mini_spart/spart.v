@@ -72,14 +72,25 @@ module spart(
 								.sel_high(wrt_db_high)
 								);
 								
-						 tx0( .clk(clk),
-								.rst_n(rst),
-								.TxD_start(wrt_tx),
-								.Enable(tx_rx_en),
-								.TxD_data(bus_interface_out),
-								.TxD(),	//TODO
-								.TBR(tbr)
-								);
+module tx(
+	input clk,
+	input rst,
+	input [7:0] data,
+	input en,
+	input en_tx,
+	output reg tbr,
+	output TxD
+	);
+	
+module rx(
+		clk,
+		rst,
+		RxD,
+		Baud,
+		RxD_data,
+		RDA,
+		rd_rx
+		);
 
 
 endmodule

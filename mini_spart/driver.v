@@ -144,6 +144,7 @@ module driver(
 			RECEIVE_WAIT: begin
 					if(~rda) begin
 						nxt_state = RECEIVE_WAIT;
+						// iocs = 1;					// TODO: Maybe better to do this? -- TEST
 						ioaddr = 2'b00;
 					end
 					else begin
