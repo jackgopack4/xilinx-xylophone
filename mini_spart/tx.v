@@ -17,11 +17,12 @@ module tx(
 // Assert TxD_start for (at least) one clock cycle to start transmission of TxD_data
 // TxD_data is latched so that it doesn't have to stay valid while it is being sent
 
-reg [1:0] TxD_state;
+reg [1:0] TxD_state, nxt_state;
 wire TBR = (TxD_state==0);
 reg [3:0] EnableCnt;
 reg [3:0] StateCnt;
 reg Sample;
+reg [7:0] TxD_shift;
 
 always @(posedge clk, negedge rst_n) begin
 	if(!rst_n) begin
@@ -29,6 +30,7 @@ always @(posedge clk, negedge rst_n) begin
 		EnableCnt <= 0;
 		StateCnt <= 0;
 		TxD_state <= 2'b00;
+		TxD_shift <= 0;
 	end
 	Sample <= 0;
 	if(Enable) begin
@@ -60,18 +62,23 @@ always @(posedge clk, negedge rst_n) begin
 		$display("data latched");
 	end
 end
-
-reg [7:0] TxD_shift = 0;
+always @(posedge clk, negedge rst_n) begin
+	if(!rst_n) begin 
+		TxD_state <= 0;
+		nxt_state <= 0;
+	end
+	TxD_state <= nxt_state;
+end
 always @(posedge clk)
 begin
 	//$display("TxD_state = %b", TxD_state);
 	case(TxD_state)
-		2'b00: 	if(TxD_start) TxD_state <= 2'b10; // idle
-		2'b01: 	if(StateCnt >= 4'b1010) TxD_state <= 2'b00;
+		2'b00: 	if(TxD_start) nxt_state = 2'b10; // idle
+		2'b01: 	if(StateCnt >= 4'b1010) nxt_state = 2'b00;
 		2'b10: 	if(Sample) begin // transmit
-					TxD_state <= 2'b01;
+					nxt_state = 2'b01;
 			   	end
-		default: TxD_state <= 2'b00;
+		default: nxt_state = 2'b00;
 	endcase
 end
 
