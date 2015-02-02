@@ -32,8 +32,8 @@ module spart(
     );
 	 
 	reg [7:0] a,b;
-	wire [7:0] databus_out, bus_interface_out;
-	wire sel, wrt_db_low, wrt_db_high, wrt_tx, tx_rx_en;
+	wire [7:0] databus_out, bus_interface_out, rx_data_out;
+	wire sel, wrt_db_low, wrt_db_high, wrt_tx, tx_rx_en, rd_rx;
 
 	// Select high when writing to databus
 	// reading from databus
@@ -56,11 +56,12 @@ module spart(
                         .tbr(tbr),
                         .databus_in(b),
 								.databus_out(databus_out),
-                        .data_in(), // TODO: From RX
+                        .data_in(rx_data_out), // TODO: From RX
                         .data_out(bus_interface_out),
                         .wrt_db_low(wrt_db_low),
                         .wrt_db_high(wrt_db_high),
                         .wrt_tx(wrt_tx),
+								.rd_rx(rd_rx)
 								.databus_sel(sel)
                         );
 								
@@ -72,24 +73,22 @@ module spart(
 								.sel_high(wrt_db_high)
 								);
 								
-module tx(
-	input clk,
-	input rst,
-	input [7:0] data,
-	input en,
-	input en_tx,
-	output reg tbr,
-	output TxD
-	);
+	tx tx0(	.clk(clk),
+				.rst(rst),
+				.data(bus_interface_out),
+				.en(tx_rx_en),
+				.en_tx(wrt_tx),
+				.tbr(tbr),
+				.TxD(txd)
+				);
 	
-module rx(
-		clk,
-		rst,
-		RxD,
-		Baud,
-		RxD_data,
-		RDA,
-		rd_rx
+	rx rx0(	.clk(clk),
+				.rst(rst),
+				.RxD(rxd),
+				.Baud(tx_rx_en),
+				.RxD_data(rx_data_out),
+				.RDA(rda),
+				.rd_rx(rd_rx)
 		);
 
 
