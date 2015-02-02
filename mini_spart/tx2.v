@@ -3,7 +3,7 @@ module tx(
 	input rst,
 	input [7:0] data,
 	input en,
-	input en_start,
+	input en_tx,
 	output reg tbr,
 	output TxD
 	);
@@ -17,6 +17,7 @@ reg [3:0] en_counter, shft_counter;
 reg state, nxt_state;
 reg shft_start, shft_tick;
 reg en_start, en_tick;
+reg load, shft;
 
 always @ (posedge clk, posedge rst)
 	if(rst)
@@ -30,39 +31,38 @@ always @ (posedge clk, posedge rst)
 	else if (load)
 		receive_buffer <= {1'b1,data,1'b0};
 	else if (shft)
-		receive_buffer <= receive_buffer >>> 1;
+		receive_buffer <= {1'b1, receive_buffer[9:1]};
 		
 always @ (posedge clk, posedge rst)
 	if(rst)
 		en_counter <= 4'h0;
 	else if(en_start)
 		en_counter <= 4'hF;
-	if(en_tick)
+	else if(en_tick)
 		en_counter <= en_counter - 1;
 
 always @ (posedge clk, posedge rst)
 	if(rst)
 		shft_counter <= 4'h0;
 	else if(shft_start)
-		shft_counter <= 4'A;
+		shft_counter <= 4'h9;
 	else if(shft_tick)
 		shft_counter <= shft_counter - 1;
 
 assign TxD = receive_buffer[0];
 
 always @ (clk, rst, data, en) begin
+	nxt_state = IDLE;
+	load = 0;
+	en_start = 0;
+	en_tick = 0;
+	shft_start = 0;
+	shft_tick = 0;
+	shft = 0;
+	tbr = 0;
 	case(state)
-		nxt_state = IDLE;
-		load = 0;
-		en_start = 0;
-		en_tick = 0;
-		shft_start = 0;
-		shft_tick = 0;
-		shft = 0;
-		tbr = 0;
-		
 		IDLE : begin
-			if(en_start) begin
+			if(en_tx) begin
 				load = 1;
 				en_start = 1;
 				shft_start = 1;
@@ -89,6 +89,7 @@ always @ (clk, rst, data, en) begin
 					en_tick = 1;
 					nxt_state = TRANS;
 				end
+			end
 			else begin
 				nxt_state = TRANS;
 			end
