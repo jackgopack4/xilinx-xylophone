@@ -72,6 +72,7 @@ always @ (clk, rst, data, en) begin
 			end
 		end
 		TRANS : begin
+			tbr = 0;
 			if(en) begin								// Enable signal detected
 				if(~(|en_counter)) begin			// All enable signals detected (16)
 					if(~(|shft_counter)) begin		// All bits transfered
