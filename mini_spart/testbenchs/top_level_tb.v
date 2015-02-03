@@ -50,6 +50,7 @@ module top_level_tb();
 		.rd_rx(stm_rd_rx)
 		);
 
+/*
 always
 	case(i[1:0])
 		2'b00 : baud_rate_data = 16'h12c0;
@@ -58,18 +59,19 @@ always
 		2'b11 : baud_rate_data = 16'h9600;
 		default : baud_rate_data = 16'h12c0;
 	endcase
+*/
 
 always
 	#5 stm_clk <= ~stm_clk;
 
 initial begin
-	for(i = 0; i < 4; i = i + 1) begin
+	// for(i = 0; i < 4; i = i + 1) begin
 		stm_clk = 0;
 		stm_rst = 1;
-		stm_br_cfg = i[1:0];
+		stm_br_cfg = 2'b00;
 
 		// Baud Init
-		stm_baud_data = baud_rate_data[7:0];
+		stm_baud_data_in = 8'hc0; // baud_rate_data[7:0];
 		stm_sel_low = 1;
 		stm_sel_high = 0;
 
@@ -83,36 +85,45 @@ initial begin
 		// Load Low Buffer
 		@(posedge stm_clk);
 		stm_rst = 0;
+		$display("Low Buffer Loading...");
 
 		// Load High Buffer
 		@(posedge stm_clk);
+		$display("High Buffer Loading...");
 		stm_sel_low = 0;
 		stm_sel_high = 1;
-		stm_baud_data = baud_rate_data[15:8];
+		stm_baud_data_in =  8'h12; // baud_rate_data[15:8];
 
 		// Send Data (Ready to Receive)
 		@(posedge stm_clk);
 		stm_sel_high = 0;
-
+		$display("Sending data...");
 		// Start sending spart data
 		stm_wrt_tx = 1;
 		@(posedge stm_clk);
 		stm_wrt_tx = 0;
 
+		$display("Waiting for receive signal...");
 		@(posedge tb_rda_mon);
-		@(posedge clk);
+		@(posedge stm_clk);
 
+		/*
 		if(final_data_mon != stm_tx_data) begin
 			flags = flags & (1 << i[1:0])
 		end
-	end
-
+		*/
+	// end
+	/*
 	if(~|flags)
 		$display("All tests passed!");
 	else
 		$display("Some tests failed, check flags: %h", flags);
-	
-	$stop();
+	*/
+	if(final_data_mon != stm_tx_data)
+		$display("An error occured");
+	else
+		$display("Test passed!");
+	$finish();
 	
 end
 endmodule
