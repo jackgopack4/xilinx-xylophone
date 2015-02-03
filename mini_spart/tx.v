@@ -63,14 +63,12 @@ always @ (clk, rst, data, en) begin
 	tbr = 0;
 	case(state)
 		IDLE : begin
+			tbr = 1;
 			if(en_tx) begin
 				load = 1;
 				en_start = 1;
 				shft_start = 1;
 				nxt_state = TRANS;
-			end
-			else begin
-				tbr = 1;
 			end
 		end
 		TRANS : begin

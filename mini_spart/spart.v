@@ -38,17 +38,17 @@ module spart(
 
 	// Select high when writing to databus
 	// reading from databus
-	assign databus = sel ? a : 8'bz;
+	assign databus = sel ? databus_out : 8'bzz;
 	
-	always @ (posedge clk, posedge rst)
-		if(rst) begin
-			a <= 8'h00;
-			b <= 8'h00;
-		end
-		else begin
-			a <= databus_out;
-			b <= databus;
-		end		
+	//always @ (posedge clk, posedge rst)
+	//	if(rst) begin
+	//		a <= 8'h00;
+	//		b <= 8'h00;
+	//	end
+	//	else begin
+	//		a <= databus_out;
+	//		b <= databus;
+	//	end		
 
 	// Testing //
 	/////////////
@@ -59,7 +59,7 @@ module spart(
                         .ioaddr(ioaddr),
                         .rda(rda),
                         .tbr(tbr),
-                        .databus_in(b),
+                        .databus_in(databus),
 								.databus_out(databus_out),
                         .data_in(rx_data_out), // TODO: From RX
                         .data_out(bus_interface_out),

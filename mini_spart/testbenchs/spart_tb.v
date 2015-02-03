@@ -42,6 +42,7 @@ module spart_tb();
 		.rd_rx(stm_rd_rx)
 		);
 
+
 always
 	#5 stm_clk <= ~stm_clk;
 
@@ -92,6 +93,20 @@ initial begin
 	repeat(10) @ (posedge stm_clk);
 
 	$display("Spart received: %h", databus_inout);
+
+	repeat(10) @ (posedge stm_clk);
+	stm_ioaddr = 2'b00;
+	stm_iorw = 0;
+	stm_databus_oe = 1;
+	stm_databus_in = 8'hAC;
+
+	@(posedge stm_clk);
+	stm_iocs = 0;
+	stm_databus_oe = 0;
+
+	@(posedge tb_rda_mon);
+	repeat(100)@(posedge stm_clk);
+	
 	$stop();
 	
 end

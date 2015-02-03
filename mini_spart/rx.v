@@ -32,7 +32,7 @@ module rx(
 	// Registers //
 	///////////////
 	reg RxD_ff1, RxD_ff2;
-	reg shift;
+	reg shift, set_RDA;
 	reg [7:0] RxD_shift;
 	reg [3:0] bit_cnt;
 	reg [4:0] baud_cnt;
@@ -118,10 +118,17 @@ module rx(
 		end
 	end
 
+	always @ (posedge clk, posedge rst) begin
+		if(rst)
+			RDA <= 0;
+		else
+			RDA <= set_RDA;
+	end
+
 	always@(*) begin
 		rst_bit_cnt = 0;
 		rst_baud_cnt = 0;
-		RDA = 0;
+		set_RDA = 0;
 		nxt_state = IDLE;
 		shift = 0;
 		
@@ -129,6 +136,7 @@ module rx(
 			IDLE: begin
 				if(negedgeRxD) begin
 					nxt_state = STRTBIT;
+					rst_baud_cnt = 1;
 				end
 			end
 			STRTBIT: begin
@@ -146,6 +154,7 @@ module rx(
 					rst_baud_cnt = 1;
 					if(bit_cnt == 4'h7) begin
 						nxt_state = DONE;
+						set_RDA = 1;
 					end
 					else begin
 						nxt_state = RCV;
@@ -158,7 +167,7 @@ module rx(
 					nxt_state = IDLE;
 				else begin
 					nxt_state = DONE;
-					RDA = 1;
+					set_RDA = 1;
 				end
 			end
 		endcase
