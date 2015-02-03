@@ -59,8 +59,8 @@ module rx(
 	////////////////////
 	always@(posedge clk, posedge rst) begin
 		if(rst) begin
-			RxD_ff1 <= 1'b1;
-			RxD_ff2 <= 1'b1;
+			RxD_ff1 <= 1'b0;
+			RxD_ff2 <= 1'b0;
 		end
 		else begin
 			RxD_ff1 <= RxD;

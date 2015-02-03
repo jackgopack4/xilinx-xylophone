@@ -64,7 +64,7 @@ initial begin
 	stm_br_cfg = 2'b00;
 
 	// TX Init
-	stm_tx_data = 8'hA5;
+	stm_tx_data = 8'h61;
 	stm_wrt_tx = 0;
 
 	// RX Init

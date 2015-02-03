@@ -27,6 +27,8 @@ module spart(
     output txd,
     input rxd
     );
+
+
 	 
     ///////////////////////////////////
     // Interconnects between modules //
