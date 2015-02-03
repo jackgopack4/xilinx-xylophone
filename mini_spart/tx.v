@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module tx(
 	input clk,
 	input rst,
@@ -27,7 +28,7 @@ always @ (posedge clk, posedge rst)
 
 always @ (posedge clk, posedge rst)
 	if(rst)
-		receive_buffer <= 10'h3FF;
+		receive_buffer <= 10'h000;
 	else if (load)
 		receive_buffer <= {1'b1,data,1'b0};
 	else if (shft)
@@ -62,17 +63,16 @@ always @ (clk, rst, data, en) begin
 	tbr = 0;
 	case(state)
 		IDLE : begin
+			tbr = 1;
 			if(en_tx) begin
 				load = 1;
 				en_start = 1;
 				shft_start = 1;
 				nxt_state = TRANS;
 			end
-			else begin
-				tbr = 1;
-			end
 		end
 		TRANS : begin
+			tbr = 0;
 			if(en) begin								// Enable signal detected
 				if(~(|en_counter)) begin			// All enable signals detected (16)
 					if(~(|shft_counter)) begin		// All bits transfered

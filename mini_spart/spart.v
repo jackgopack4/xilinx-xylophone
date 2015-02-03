@@ -29,38 +29,44 @@ module spart(
     inout [7:0] databus,
     output txd,
     input rxd
+	// output tx_rx_en_out		// Used for testing
     );
 	 
 	reg [7:0] a,b;
-	wire [7:0] databus_out, bus_interface_out;
-	wire sel, wrt_db_low, wrt_db_high, wrt_tx, tx_rx_en;
+	wire [7:0] databus_out, bus_interface_out, rx_data_out;
+	wire sel, wrt_db_low, wrt_db_high, wrt_tx, tx_rx_en, rd_rx;
 
 	// Select high when writing to databus
 	// reading from databus
-	assign databus = sel ? a : 8'bz;
+	assign databus = sel ? databus_out : 8'bzz;
 	
-	always @ (posedge clk, posedge rst)
-		if(rst) begin
-			a <= 8'h00;
-			b <= 8'h00;
-		end
-		else begin
-			a <= databus_out;
-			b <= databus;
-		end		
+	//always @ (posedge clk, posedge rst)
+	//	if(rst) begin
+	//		a <= 8'h00;
+	//		b <= 8'h00;
+	//	end
+	//	else begin
+	//		a <= databus_out;
+	//		b <= databus;
+	//	end		
+
+	// Testing //
+	/////////////
+	assign tx_rx_en_out = tx_rx_en;
 
     bus_interface bus0( .iocs(iocs),
                         .iorw(iorw),
                         .ioaddr(ioaddr),
                         .rda(rda),
                         .tbr(tbr),
-                        .databus_in(b),
+                        .databus_in(databus),
 								.databus_out(databus_out),
-                        .data_in(), // TODO: From RX
+                        .data_in(rx_data_out), // TODO: From RX
                         .data_out(bus_interface_out),
                         .wrt_db_low(wrt_db_low),
                         .wrt_db_high(wrt_db_high),
                         .wrt_tx(wrt_tx),
+								.rd_rx(rd_rx),
 								.databus_sel(sel)
                         );
 								
@@ -72,14 +78,23 @@ module spart(
 								.sel_high(wrt_db_high)
 								);
 								
-						 tx0( .clk(clk),
-								.rst_n(rst),
-								.TxD_start(wrt_tx),
-								.Enable(tx_rx_en),
-								.TxD_data(bus_interface_out),
-								.TxD(),	//TODO
-								.TBR(tbr)
-								);
+	tx tx0(	.clk(clk),
+				.rst(rst),
+				.data(bus_interface_out),
+				.en(tx_rx_en),
+				.en_tx(wrt_tx),
+				.tbr(tbr),
+				.TxD(txd)
+				);
+	
+	rx rx0(	.clk(clk),
+				.rst(rst),
+				.RxD(rxd),
+				.Baud(tx_rx_en),
+				.RxD_data(rx_data_out),
+				.RDA(rda),
+				.rd_rx(rd_rx)
+		);
 
 
 endmodule

@@ -19,8 +19,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module baud_rate_gen(
-	//output tx_ben, 
-	//output rx_ben, 
 	input clk, 
 	input rst, 
 	output reg en, 
@@ -65,7 +63,7 @@ always @ (*) begin
 	counter_start = 0;
 	case(divisor_buffer[15:12])
 		4'h1 : counter_start = 12'h515;
-		4'h2 : counter_start = 12'h28A;
+		4'h2 : counter_start = 12'h28B;
 		4'h4 : counter_start = 12'h145;
 		4'h9 : counter_start = 12'h0A3;
 	endcase

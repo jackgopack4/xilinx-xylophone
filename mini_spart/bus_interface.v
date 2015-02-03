@@ -11,6 +11,7 @@ module bus_interface(
 	output reg wrt_db_low,
 	output reg wrt_db_high,
 	output reg wrt_tx,
+	output reg rd_rx,
 	output reg databus_sel
 	);
 	
@@ -21,12 +22,15 @@ module bus_interface(
 		wrt_tx = 0;
 		databus_sel = 0;
 		databus_out = 8'h00;
+		rd_rx = 0;
 		if(iocs) begin
 			case(ioaddr)
 				2'b00 : begin
 					// Recieve Buffer
 					if(iorw) begin
+						databus_sel = 1;
 						databus_out = data_in;
+						rd_rx = 1;
 					end
 					// Transmit Buffer
 					else begin
@@ -36,6 +40,7 @@ module bus_interface(
 				end
 				2'b01 : begin
 					if(iorw) begin
+						databus_sel = 1;
 						databus_out = {6'b000000, rda, tbr};
 					end
 				end
