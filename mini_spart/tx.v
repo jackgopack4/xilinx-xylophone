@@ -44,27 +44,21 @@ reg shft_start, shft_tick;
 reg en_start, en_tick;
 reg load, shft;
 
-<<<<<<< HEAD
 //////////////
 // State FF //
 //////////////
-=======
 //always block for current state and next state set on posedge clk and rst
->>>>>>> Tim
 always @ (posedge clk, posedge rst)
 	if(rst)
 		state <= IDLE;
 	else
 		state <= nxt_state;
 
-<<<<<<< HEAD
 ////////////////////
 // Receive Buffer //
 ////////////////////
-=======
 //always block for receive buffer for the data it gets depending on which signal is 
 //set set on posedge clk and rst
->>>>>>> Tim
 always @ (posedge clk, posedge rst)
 	if(rst)
 		receive_buffer <= 10'h000;
@@ -72,15 +66,12 @@ always @ (posedge clk, posedge rst)
 		receive_buffer <= {1'b1,data,1'b0};
 	else if (shft)
 		receive_buffer <= {1'b1, receive_buffer[9:1]};
-<<<<<<< HEAD
 	
 ////////////////////////////////
 // Enable (baud tick) counter //
 ////////////////////////////////
-=======
 
 //always block for downcounting the enable signals set on posedge clk and rst		
->>>>>>> Tim
 always @ (posedge clk, posedge rst)
 	if(rst)
 		en_counter <= 4'h0;
@@ -89,13 +80,10 @@ always @ (posedge clk, posedge rst)
 	else if(en_tick)
 		en_counter <= en_counter - 1;
 
-<<<<<<< HEAD
 ///////////////////////
 // Shift reg counter //
 ///////////////////////
-=======
 //always block for counting the number of shifts set on posedge clk and rst
->>>>>>> Tim
 always @ (posedge clk, posedge rst)
 	if(rst)
 		shft_counter <= 4'h0;
