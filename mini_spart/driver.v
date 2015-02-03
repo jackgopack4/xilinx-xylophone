@@ -38,9 +38,8 @@ module driver(
 	 localparam INIT_LOW_DB = 2'b00;
 	 localparam INIT_HIGH_DB = 2'b01;
 	 localparam RECEIVE = 2'b11;
-   // localparam TRANSMIT = 3'b100;
 	 localparam RECEIVE_WAIT = 2'b10;
-	 //localparam TRANSMIT_WAIT = 3'b110;
+
 	 
 	 
 	 reg [7:0] a, data_out, rx_data;
