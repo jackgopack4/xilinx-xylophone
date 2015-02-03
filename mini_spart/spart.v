@@ -28,8 +28,8 @@ module spart(
     input [1:0] ioaddr,
     inout [7:0] databus,
     output txd,
-    input rxd,
-	output tx_rx_en_out		// Used for testing
+    input rxd
+	// output tx_rx_en_out		// Used for testing
     );
 	 
 	reg [7:0] a,b;

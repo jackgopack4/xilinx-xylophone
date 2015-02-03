@@ -28,7 +28,7 @@ always @ (posedge clk, posedge rst)
 
 always @ (posedge clk, posedge rst)
 	if(rst)
-		receive_buffer <= 10'h3FF;
+		receive_buffer <= 10'h000;
 	else if (load)
 		receive_buffer <= {1'b1,data,1'b0};
 	else if (shft)

@@ -43,7 +43,7 @@ module top_level(
 					  .ioaddr(ioaddr),
 					  .databus(databus),
 					  .txd(txd),
-					  .rxd(rxd),
+					  .rxd(rxd)
 					);
 
 	// Instantiate your driver here
