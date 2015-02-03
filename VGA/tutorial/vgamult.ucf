@@ -1,0 +1,39 @@
+# CLOCK
+NET "CLK_100MHZ" LOC = "AH15";
+NET "CLK_100MHZ" IOSTANDARD = LVCMOS33;
+
+# RESET SWITCH
+NET "RST" LOC = "U25" | IOSTANDARD = LVCMOS18; #DIP 1
+
+# PUSH BUTTONS
+NET "UP" LOC = "U8" |  IOSTANDARD = LVTTL;
+NET "DOWN" LOC = "V8" |  IOSTANDARD = LVTTL;
+NET "LEFT" LOC = "AJ7" |  IOSTANDARD = LVTTL;
+NET "RIGHT" LOC = "AK7" |  IOSTANDARD = LVTTL;
+
+
+#DVI output
+NET  "D<0>"               LOC="AB8" | IOSTANDARD = LVCMOS33; 
+NET  "D<1>"               LOC="AC8" | IOSTANDARD = LVCMOS33;
+NET  "D<2>"               LOC="AN12" | IOSTANDARD = LVCMOS33;
+NET  "D<3>"               LOC="AP12" | IOSTANDARD = LVCMOS33;
+NET  "D<4>"               LOC="AA9" | IOSTANDARD = LVCMOS33;
+NET  "D<5>"               LOC="AA8" | IOSTANDARD = LVCMOS33;
+NET  "D<6>"               LOC="AM13" | IOSTANDARD = LVCMOS33;
+NET  "D<7>"               LOC="AN13" | IOSTANDARD = LVCMOS33;
+NET  "D<8>"               LOC="AA10" | IOSTANDARD = LVCMOS33;
+NET  "D<9>"               LOC="AB10" | IOSTANDARD = LVCMOS33;
+NET  "D<10>"              LOC="AP14" | IOSTANDARD = LVCMOS33;
+NET  "D<11>"              LOC="AN14" | IOSTANDARD = LVCMOS33;
+
+NET D<*>  IOSTANDARD = LVDCI_33;
+
+NET "blank"					LOC = "AE8"  | IOSTANDARD = LVDCI_33;  #data enable
+NET "hsync"					LOC = "AM12" | IOSTANDARD = LVDCI_33;
+NET "vsync"					LOC = "AM11"  | IOSTANDARD = LVDCI_33;
+NET "clk"					LOC = "AL10" | IOSTANDARD = LVCMOS33 | DRIVE = 24 | SLEW = FAST;
+NET "clk_n"					LOC="AL11" | IOSTANDARD = LVCMOS33 | DRIVE = 24 | SLEW = FAST;
+NET "dvi_rst"           LOC="AK6" |  IOSTANDARD = LVCMOS33;
+
+NET  "scl_tri"        LOC="U27" | SLEW = SLOW |  DRIVE = 6 | TIG |  IOSTANDARD = LVCMOS18;   # Bank 15, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET  "sda_tri"        LOC="T29" | SLEW = SLOW |  DRIVE = 6 | TIG |  IOSTANDARD = LVCMOS18;   # Bank 15, Vcco=1.8V, DCI using 49.9 ohm resistors
