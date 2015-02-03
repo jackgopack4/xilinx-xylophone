@@ -1,3 +1,6 @@
+// TX Module for RS232 communication
+// Authors: Tim Zodrow, Manji
+
 `timescale 1ns / 1ps
 module tx(
 	input clk,
@@ -20,12 +23,18 @@ reg shft_start, shft_tick;
 reg en_start, en_tick;
 reg load, shft;
 
+//////////////
+// State FF //
+//////////////
 always @ (posedge clk, posedge rst)
 	if(rst)
 		state <= IDLE;
 	else
 		state <= nxt_state;
 
+////////////////////
+// Receive Buffer //
+////////////////////
 always @ (posedge clk, posedge rst)
 	if(rst)
 		receive_buffer <= 10'h000;
@@ -33,7 +42,10 @@ always @ (posedge clk, posedge rst)
 		receive_buffer <= {1'b1,data,1'b0};
 	else if (shft)
 		receive_buffer <= {1'b1, receive_buffer[9:1]};
-		
+	
+////////////////////////////////
+// Enable (baud tick) counter //
+////////////////////////////////
 always @ (posedge clk, posedge rst)
 	if(rst)
 		en_counter <= 4'h0;
@@ -42,6 +54,9 @@ always @ (posedge clk, posedge rst)
 	else if(en_tick)
 		en_counter <= en_counter - 1;
 
+///////////////////////
+// Shift reg counter //
+///////////////////////
 always @ (posedge clk, posedge rst)
 	if(rst)
 		shft_counter <= 4'h0;

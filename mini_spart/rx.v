@@ -1,12 +1,15 @@
+// RX module for RS232 communication
+// Authors: John Peterson, Tim Zodrow
+
 `timescale 1ns / 1ps
 module rx(
 		clk,
 		rst,
 		RxD,
-		Baud,
-		RxD_data,
-		RDA,
-		rd_rx
+		Baud,		// Input for Baud Rate, 16 ticks per bit
+		RxD_data,	// Output for data received
+		RDA,		// Data ready to be read
+		rd_rx		// Input to clear ready signal, prepare for RX
 		);
 	////////////
 	// Inputs //
@@ -44,7 +47,6 @@ module rx(
 	reg rst_bit_cnt, rst_baud_cnt;
 
 	// shift when baud cnt = 16;
-	// assign shift = (baud_cnt == 5'b10000);
 	// buffer for shift is 4 baud ticks (1/4 of period)
 	assign strt_shift = (baud_cnt == 5'b01000);
 	// Detect negative edge of RX for start signal
@@ -125,6 +127,7 @@ module rx(
 			RDA <= set_RDA;
 	end
 
+	// Combinational logic for state machine
 	always@(*) begin
 		rst_bit_cnt = 0;
 		rst_baud_cnt = 0;
@@ -133,13 +136,13 @@ module rx(
 		shift = 0;
 		
 		case(state)
-			IDLE: begin
+			IDLE: begin    // Waiting for reception. Data not ready
 				if(negedgeRxD) begin
 					nxt_state = STRTBIT;
 					rst_baud_cnt = 1;
 				end
 			end
-			STRTBIT: begin
+			STRTBIT: begin // Receive start bit, transition to receive
 				if(strt_shift) begin
 					rst_baud_cnt = 1;
 					shift = 1;
@@ -148,7 +151,7 @@ module rx(
 				end
 				else nxt_state = STRTBIT;
 			end
-			RCV: begin
+			RCV: begin     // Receive data, wait until all eight received
 				if(baud_cnt == 5'b10000) begin
 					shift = 1;
 					rst_baud_cnt = 1;
@@ -162,7 +165,7 @@ module rx(
 				end
 				else nxt_state = RCV;
 			end
-			DONE : begin
+			DONE : begin   // Receive successful, output acknowledge
 				if(rd_rx)
 					nxt_state = IDLE;
 				else begin
