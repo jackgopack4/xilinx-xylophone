@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module vgamult(clk_100mhz,  rst, pixel_r, pixel_g, pixel_b, up, down, left, right, hsync, vsync, blank, clk, clk_n, D, dvi_rst, scl_tri, sda_tri);
+module vgamult(clk_100mhz,  rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, clk, clk_n, D, dvi_rst, scl_tri, sda_tri);
     input clk_100mhz;
     input rst;
 	 
@@ -37,11 +37,6 @@ module vgamult(clk_100mhz,  rst, pixel_r, pixel_g, pixel_b, up, down, left, righ
 	 output clk_n;
 	 
 	 inout scl_tri, sda_tri;
-	 
-    input up;
-    input down;
-	 input left;
-	 input right;
 	 
 	 wire [9:0] pixel_x;
 	 wire [9:0] pixel_y;
