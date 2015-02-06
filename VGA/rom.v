@@ -4,7 +4,7 @@ module rom(
 	input clk,
 	input rst,
 	input [23:0] addr, 
-	output [23:0] rdata);
+	output reg [23:0] rdata);
 	
 
 	parameter DISPLAY_HEIGHT = 640;

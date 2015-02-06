@@ -24,7 +24,7 @@ module display_pane(
     input [23:0] data_in,
     input empty,
     input full,
-    output write_en,
+    output reg write_en,
     output [23:0] mem_addr,
     output [23:0] data_out
     );
@@ -41,8 +41,6 @@ module display_pane(
 	reg load_start_addr;
 
 	reg state, nxt_state;
-	reg write_en;
-
 	always @ (posedge clk, posedge rst)
 		if(rst)
 			state <= 0;
