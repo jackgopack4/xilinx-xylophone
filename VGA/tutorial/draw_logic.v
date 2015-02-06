@@ -18,28 +18,22 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-`define PADDLE_WIDTH 10'd8
-`define PADDLE_HEIGHT 10'd48
-`define BALL_WIDTH 10'd16
-`define BALL_HEIGHT 10'd16
 
-`define PLAY_TOP 10'd8
-`define PLAY_BOTTOM 10'd471
-`define PLAY_LEFT 10'd8
-`define PLAY_RIGHT 10'd631
-
-module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b);
+module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, rom_color, read_en, fifo_empty);
     input clk;
     input rst;
     input [9:0] pixel_x;
     input [9:0] pixel_y;
+    input fifo_empty;
 	 
     output reg [7:0] pixel_r;
     output reg [7:0] pixel_g;
     output reg [7:0] pixel_b;
+
+    output reg read_en;
 	 
 	wire [11:0] rom_addr;
-	wire [23:0] rom_color;
+	input [23:0] rom_color;
 	 
 		
 		
@@ -48,17 +42,15 @@ module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b);
 	 
 	assign next_pixy = pixel_y+4'h1;
 	assign next_pixx = pixel_x+4'h1;
-    	 
+
     always@(*) begin
 		pixel_r = 8'h00;
 		pixel_g = 8'h00;
 		pixel_b = 8'h00;
+		read_en = 1'b0;
 		if(~rst) begin
-		  if(pixel_x < 128 && pixel_y==31) begin
-				pixel_r = 8'hC0;
-				pixel_g = 8'hC0;
-				pixel_b = 8'hFF;
-		  end else if(pixel_x<128 && pixel_y <48) begin
+		  if(!fifo_empty) begin
+		  		read_en = 1'b1;
 				pixel_r = rom_color[23:16];
 				pixel_g = rom_color[15:8];
 				pixel_b = rom_color[7:0];

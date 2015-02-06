@@ -24,6 +24,7 @@ module display_pane(
     input [23:0] data_in,
     input empty,
     input full,
+    output write_en,
     output [23:0] mem_addr,
     output [23:0] data_out
     );
@@ -40,6 +41,7 @@ module display_pane(
 	reg load_start_addr;
 
 	reg state, nxt_state;
+	reg write_en;
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
@@ -93,10 +95,12 @@ module display_pane(
 		inc_x_count = 0; 
 		inc_h_count = 0;
 		load_start_addr = 0;
+		write_en = 0;
 
 		case(state)
 			LOAD : begin
 				if(~full) begin
+					write_en = 1;
 					rst_x_count = (x_count == 8'h4f) & (&h_count);
 					rst_curr_addr = rst_x_count & ~(&v_count);
 
