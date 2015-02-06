@@ -27,6 +27,9 @@ module display_pane(
     output [23:0] mem_addr,
     output [23:0] data_out
     );
+	
+	localparam LOAD = 1'b0;
+	localparam WAIT = 1'b1;
 
 	reg [2:0] h_count, v_count;
 	reg [7:0] x_count;
@@ -36,7 +39,13 @@ module display_pane(
 	reg inc_curr_addr, inc_v_count, inc_x_count, inc_h_count;
 	reg load_start_addr;
 
-	reg state, nxt_state; 
+	reg state, nxt_state;
+
+	always @ (posedge clk, posedge rst)
+		if(rst)
+			state <= 0;
+		else
+			state <= nxt_state; 
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
@@ -44,7 +53,7 @@ module display_pane(
 		else if(rst_curr_addr)
 			curr_addr <= start_addr;
 		else if(inc_curr_addr)
-			curr_addr <= curr_addr + 1
+			curr_addr <= curr_addr + 1;
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
@@ -60,8 +69,8 @@ module display_pane(
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
-			v_count < 4'h0;
-		else (inc_v_count)
+			v_count <= 4'h0;
+		else if(inc_v_count)
 			v_count <= v_count + 1;
 
 	always @ (posedge clk, posedge rst)
@@ -88,14 +97,14 @@ module display_pane(
 		case(state)
 			LOAD : begin
 				if(~full) begin
-					rst_x_count = (x_count == 8'h50);
-					rst_curr_addr = rst_x_count;
+					rst_x_count = (x_count == 8'h4f) & (&h_count);
+					rst_curr_addr = rst_x_count & ~(&v_count);
 
 					inc_h_count = 1;
 					inc_x_count = &h_count;
 					inc_v_count = rst_x_count;
-
-					curr_addr = inc_x_count;
+ 
+					inc_curr_addr = inc_x_count;
 					load_start_addr = (&v_count) & rst_x_count;
 				end
 				else
