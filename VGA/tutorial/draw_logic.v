@@ -42,10 +42,6 @@ module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, rom_col
 	 
 	assign next_pixy = pixel_y+4'h1;
 	assign next_pixx = pixel_x+4'h1;
-   	
-	always@(posedge clk, posedge rst) begin
-		
-	end
 
     always@(*) begin
 		pixel_r = 8'h00;
@@ -53,11 +49,7 @@ module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, rom_col
 		pixel_b = 8'h00;
 		read_en = 1'b0;
 		if(~rst) begin
-		  if(fifo_empty) begin
-				pixel_r = 8'hFF;
-				pixel_g = 8'hFF;
-				pixel_b = 8'hFF;
-		  end else begin
+		  if(!fifo_empty) begin
 		  		read_en = 1'b1;
 				pixel_r = rom_color[23:16];
 				pixel_g = rom_color[15:8];
