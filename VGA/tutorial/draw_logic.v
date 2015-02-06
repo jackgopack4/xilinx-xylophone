@@ -28,7 +28,7 @@
 `define PLAY_LEFT 10'd8
 `define PLAY_RIGHT 10'd631
 
-module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b,multiplier, multiplicand, product);
+module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b);
     input clk;
     input rst;
     input [9:0] pixel_x;
@@ -48,11 +48,7 @@ module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b,multipli
 	 
 	assign next_pixy = pixel_y+4'h1;
 	assign next_pixx = pixel_x+4'h1;
-    
-	assign rom_addr = {next_pixy,cur_digit,next_pixx};
-	 
-    simple_rom #(12,24,"numbers.mem") num_rom(clk, rom_addr, rom_color);
-
+    	 
     always@(*) begin
 		pixel_r = 8'h00;
 		pixel_g = 8'h00;
