@@ -61,6 +61,15 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	wire sda;
 	wire scl;
 
+	wire [23:0] addr;
+	wire [23:0] rdata;
+
+	wire fifo_empty, fifo_full;
+	wire [23:0] mem_addr, data_dp_fifo;
+
+	wire [23:0] fifo_data_out;
+	wire fifo_wr_en, fifo_rd_en;
+
 	//DVI Interface
 	assign dvi_rst = ~(rst|~locked_dcm);
 	assign D = (clk)? pixel_gbrg[23:12] : pixel_gbrg[11:0];
@@ -77,6 +86,9 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 						);
 	vga_clk vga_clk_gen1(clk_100mhz, rst, clk_25mhz, clkin_ibufg_out, clk_100mhz_buf, locked_dcm);
     vga_logic  vgal1(clk_25mhz, rst|~locked_dcm, blank, comp_sync, hsync, vsync, pixel_x, pixel_y);
-					
+	rom rom1(clk_100mhz, rst|~locked_dcm, addr, rdata);		
+	display_pane dp1(clk_100mhz, rst, rdata, fifo_empty, fifo_full, mem_addr, data_dp_fifo);
+	fifo_core fifo_core_gen1(rst, clk_100mhz, clk_25mhz, data_dp_fifo, fifo_wr_en, fifo_rd_en, fifo_data_out, fifo_full, fifo_empty);
+	//TODO: ADD MAIN LOGIC (and draw logic)
 
 endmodule
