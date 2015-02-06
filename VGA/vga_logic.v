@@ -18,18 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module vga_logic(clk, rst, blank, comp_sync, hsync, vsync, pixel_x, pixel_y);
+module vga_logic(clk, rst, blank, comp_sync, hsync, vsync, pixel_x, pixel_y, start);
     input clk;
     input rst;
-	 output blank;
-	 output comp_sync;
+    input start; // wait until this signal high to do anything
+	output blank;
+	output comp_sync;
     output hsync;
     output vsync;
     output [9:0] pixel_x;
     output [9:0] pixel_y;
 	 
-	 reg [9:0] pixel_x;
-	 reg [9:0] pixel_y;
+	reg [9:0] pixel_x;
+	reg [9:0] pixel_y;
 	 
 	 // pixel_count logic
 	 wire [9:0] next_pixel_x;
@@ -43,7 +44,11 @@ module vga_logic(clk, rst, blank, comp_sync, hsync, vsync, pixel_x, pixel_y);
 	   if(rst) begin
 		  pixel_x <= 10'h0;
 		  pixel_y <= 10'h0;
-		end else begin
+		end else if(!start) begin
+		  pixel_x <= 10'h0;
+		  pixel_y <= 10'h0;
+		end
+		else begin
 		  pixel_x <= next_pixel_x;
 		  pixel_y <= next_pixel_y;
 		end
