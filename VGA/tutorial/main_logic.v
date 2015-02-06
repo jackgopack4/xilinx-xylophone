@@ -18,36 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module main_logic(clk, rst, up, down, left, right, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b);
-    input clk;
+module main_logic(clk_100, clk_25, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b);
+    input clk_100, clk_25;
     input rst;
-    input up;
-    input down;
-	 input left;
-	 input right;
     input [9:0] pixel_x;
     input [9:0] pixel_y;
     output [7:0] pixel_r;
     output [7:0] pixel_g;
     output [7:0] pixel_b;
 	 
-	 wire tick_cycle;
-	 wire [19:0] tick_counter;
+	wire tick_cycle;
+	wire [19:0] tick_counter;
 	 
-	 wire [31:0] multiplier;
-	 wire [31:0] multiplicand;
-	 wire [31:0] product;
-	 
-	 draw_logic draw1(clk, rst, pixel_x, pixel_y,  
-	                  pixel_r, pixel_g, pixel_b,multiplier, multiplicand, product);
-     
-	 tick_logic tl1(clk, rst, tick_cycle,
-                   up, down, left, right,	 
-	                multiplier, multiplicand, product);
-					
-	 
-	 up_counter uc1(rst | tick_cycle, clk, tick_counter);
-	
-	 assign tick_cycle = (tick_counter == 20'h80000);
+	draw_logic draw1(clk_25, rst, pixel_x, pixel_y,  
+	                  pixel_r, pixel_g, pixel_b);
 
 endmodule
