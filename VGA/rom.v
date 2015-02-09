@@ -19,6 +19,6 @@ module rom(
 		if(rst)
 			rdata <= 0;
 		else
-			rdata <= ROM[addr];
+			rdata <= rom[addr];
 
 endmodule
