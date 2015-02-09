@@ -12,8 +12,9 @@ module rom(
 	parameter DATA_WIDTH = 24;
 	parameter MEM_FILE = "tiny_image.coe";
 
-	reg [DATA_WIDTH-1:0] ROM [0:DISPLAY_HEIGHT*DISPLAY_WIDTH-1];
-	initial $readmemh(MEM_FILE, ROM);
+	reg [DATA_WIDTH-1:0] rom [0:DISPLAY_HEIGHT*DISPLAY_WIDTH-1];
+	// initial $readmemh(MEM_FILE, ROM);
+	initial $readmemh("memory.list", rom);
 	always @ (posedge clk, posedge rst)
 		if(rst)
 			rdata <= 0;
