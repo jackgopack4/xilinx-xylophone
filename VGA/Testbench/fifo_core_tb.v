@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module fifo_core_tb();
 
 reg stm_rst, stm_wr_clk, stm_rd_clk;
@@ -8,10 +9,10 @@ wire [23 : 0] dout_mon;
 wire full_mon;
 wire empty_mon;
 
-module fifo_core(
+fifo_core fifo0(
   .rst(stm_rst),
   .wr_clk(stm_wr_clk),
-  .rd_clk(stm_rd_clk,
+  .rd_clk(stm_rd_clk),
   .din(stm_din),
   .wr_en(stm_wr_en),
   .rd_en(stm_rd_en),
