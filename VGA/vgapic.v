@@ -100,7 +100,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	rom rom1(clk_100mhz, rst|~locked_dcm, addr, rdata);		
 	display_pane dp1(clk_100mhz, rst, rdata, fifo_empty, fifo_full, fifo_wr_en, mem_addr, data_dp_fifo);
 	fifo_core fifo_core_gen1(rst, clk_100mhz, clk_25mhz, data_dp_fifo, fifo_wr_en, fifo_rd_en, fifo_data_out, fifo_full, fifo_empty);
-	draw_logic(clk_25mhz, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, fifo_data_out, fifo_rd_en, fifo_empty);
+	draw_logic draw0(clk_25mhz, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, fifo_data_out, fifo_rd_en, fifo_empty);
 	//TODO: ADD MAIN LOGIC (and draw logic)
 
 endmodule
