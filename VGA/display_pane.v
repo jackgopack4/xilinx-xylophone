@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ECE554
+// Engineer: Manjot Pal, John Peterson, Tim Zodrow
 // 
 // Create Date:    17:26:39 02/04/2015 
 // Design Name: 
 // Module Name:    display_pane 
-// Project Name: 
-// Target Devices: 
+// Project Name: Miniproject 2 - VGA
+// Target Devices: Virtex-5
 // Tool versions: 
 // Description: 
 //
@@ -16,7 +16,7 @@
 // Revision: 
 // Revision 0.01 - File Created
 // Additional Comments: 
-//
+// Write data to FIFO from ROM. Operates at 100MHz
 //////////////////////////////////////////////////////////////////////////////////
 module display_pane(
     input clk,

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ECE554
+// Engineer: Manjot Pal, John Peterson, Tim Zodrow
 // 
 // Create Date:    18:09:18 02/04/2015 
 // Design Name: 

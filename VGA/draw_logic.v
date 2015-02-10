@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ECE554
+// Engineer: Manjot Pal, John Peterson, Tim Zodrow
 // 
 // Create Date:    16:39:31 02/10/2014 
 // Design Name: 
 // Module Name:    draw_logic 
-// Project Name: 
-// Target Devices: 
+// Project Name: Miniproject 2 - VGA
+// Target Devices: Virtex-5
 // Tool versions: 
 // Description: 
 //
@@ -16,7 +16,7 @@
 // Revision: 
 // Revision 0.01 - File Created
 // Additional Comments: 
-//
+// assigns pixel values based on rom data and timing
 //////////////////////////////////////////////////////////////////////////////////
 
 module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, rom_color, fifo_empty);
