@@ -25,20 +25,22 @@ module display_pane(
     input empty,
     input full,
     output reg write_en,
-    output [23:0] mem_addr,
+    output [12:0] mem_addr,
     output [23:0] data_out
     );
 	
-	localparam LOAD = 1'b0;
-	localparam WAIT = 1'b1;
+	localparam WAIT = 1'b0;
+	localparam LOAD = 1'b1;
 
 	reg [2:0] h_count, v_count;
 	reg [7:0] x_count;
-	reg [23:0] curr_addr, start_addr;
+	reg [12:0] curr_addr, start_addr;
 
-	reg rst_curr_addr, rst_x_count;
+	reg rst_curr_addr, rst_x_count, rst_back_door, rst_addr;
 	reg inc_curr_addr, inc_v_count, inc_x_count, inc_h_count;
 	reg load_start_addr;
+
+	reg [2:0] back_door;
 
 	reg state, nxt_state;
 	always @ (posedge clk, posedge rst)
@@ -49,7 +51,9 @@ module display_pane(
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
-			curr_addr <= 24'h0;
+			curr_addr <= 13'h0;
+		else if(rst_addr)
+			curr_addr <= 13'h0;
 		else if(rst_curr_addr)
 			curr_addr <= start_addr;
 		else if(inc_curr_addr)
@@ -57,9 +61,11 @@ module display_pane(
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
-			start_addr <= 24'h0;
+			start_addr <= 13'h0;
+		else if(rst_addr)
+			start_addr <= 13'h0;
 		else if(load_start_addr)
-			start_addr <= curr_addr + 1;
+			start_addr <= curr_addr;
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
@@ -81,11 +87,19 @@ module display_pane(
 		else if(inc_x_count)
 			x_count <= x_count + 1;
 
+	always @ (posedge clk, posedge rst)
+		if(rst)
+			back_door <= 3'h0;
+		else if(rst_back_door)
+			back_door <= 3'h0;
+		else
+			back_door <= back_door + 1;
+
 	assign data_out = data_in;
 	assign mem_addr = curr_addr;
 
 	always @ (*) begin
-		nxt_state = LOAD;
+		nxt_state = WAIT;
 		rst_curr_addr = 0;
 		rst_x_count = 0;
 		inc_curr_addr = 0;
@@ -94,27 +108,33 @@ module display_pane(
 		inc_h_count = 0;
 		load_start_addr = 0;
 		write_en = 0;
+		rst_back_door = 0;
 
 		case(state)
+			WAIT : begin
+				if(&back_door)
+					nxt_state = LOAD;
+			end
 			LOAD : begin
 				if(~full) begin
+					nxt_state = LOAD;
 					write_en = 1;
 					rst_x_count = (x_count == 8'h4f) & (&h_count);
-					rst_curr_addr = rst_x_count & ~(&v_count);
+					inc_curr_addr = (h_count == 4'h6);
+					rst_curr_addr = (x_count == 8'h4f) & inc_curr_addr & ~(&v_count);
 
 					inc_h_count = 1;
 					inc_x_count = &h_count;
 					inc_v_count = rst_x_count;
  
-					inc_curr_addr = inc_x_count;
 					load_start_addr = (&v_count) & rst_x_count;
+					
+					rst_addr = (curr_addr == 13'h12bf) & inc_curr_addr & (x_count == 8'h4f) & (&v_count); // rst_x_count, &v_count
 				end
-				else
+				else begin
 					nxt_state = WAIT;
-			end
-			WAIT : begin
-				if(~empty)
-					nxt_state = WAIT;
+					rst_back_door = 1;
+				end
 			end
 		endcase
 	end	

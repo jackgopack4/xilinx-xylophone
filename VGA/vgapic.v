@@ -61,15 +61,35 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	wire sda;
 	wire scl;
 
-	wire [23:0] addr;
 	wire [23:0] rdata;
 
 	wire fifo_empty, fifo_full;
-	wire [23:0] mem_addr, data_dp_fifo;
+	wire [23:0] data_dp_fifo;
+	wire [12:0] mem_addr;
 
 	wire [23:0] fifo_data_out;
 	wire fifo_wr_en, fifo_rd_en;
 	reg start_display;
+	
+	wire fifo_re;
+	
+	/*/ TESTING //
+	reg [9:0] pixel_count;
+	wire [23:0] fifo_test;
+	wire test_we;
+	
+	always @ (posedge clk_100mhz_buf, posedge rst)
+		if(rst)
+			pixel_count <= 10'h0;
+		else if(pixel_count == 10'h27f)
+			pixel_count <= 10'h0;
+		else
+			pixel_count <= pixel_count + 1;
+			
+	assign test_we = 1'b1;
+			
+	assign fifo_test = (pixel_count < 10'd319) ? 24'hff0000 : 24'h00ff00;
+	///////////*/
 
 	//DVI Interface
 	assign dvi_rst = ~(rst|~locked_dcm);
@@ -86,21 +106,79 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 						.init_IIC_xfer(1'b0)                // IIC configuration request
 						);
 
-	always@(posedge clk, posedge rst) begin
+	/*
+	always@(posedge clk_100mhz_buf, posedge rst) begin
 		if(rst) begin
 			start_display <= 1'b0;
 		end
-		else if(fifo_full) begin
+		// Starting when fifo not empty, changed from waiting to be full
+		else if(~fifo_empty) begin
 			start_display <= 1'b1;
 		end
 	end
-
-	vga_clk vga_clk_gen1(clk_100mhz, rst, clk_25mhz, clkin_ibufg_out, clk_100mhz_buf, locked_dcm);
-    vga_logic  vgal1(clk_25mhz, rst|~locked_dcm, blank, comp_sync, hsync, vsync, pixel_x, pixel_y, start_display);
-	rom rom1(clk_100mhz, rst|~locked_dcm, addr, rdata);		
-	display_pane dp1(clk_100mhz, rst, rdata, fifo_empty, fifo_full, fifo_wr_en, mem_addr, data_dp_fifo);
-	fifo_core fifo_core_gen1(rst, clk_100mhz, clk_25mhz, data_dp_fifo, fifo_wr_en, fifo_rd_en, fifo_data_out, fifo_full, fifo_empty);
-	draw_logic draw0(clk_25mhz, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, fifo_data_out, fifo_rd_en, fifo_empty);
-	//TODO: ADD MAIN LOGIC (and draw logic)
+	*/
+	
+	assign fifo_re = blank & ~fifo_empty;
+	assign vga_start = ~fifo_empty;
+	
+	vga_clk vga_clk_gen1 (	.CLKIN_IN(clk_100mhz), 
+									.RST_IN(rst), 
+									.CLKDV_OUT(clk_25mhz), 
+									.CLKIN_IBUFG_OUT(clkin_ibufg_out), 
+									.CLK0_OUT(clk_100mhz_buf), 
+									.LOCKED_OUT(locked_dcm)
+									);
+	
+	vga_logic vgal1(	.clk(clk_25mhz), 
+							.rst(rst|~locked_dcm), 
+							.blank(blank), 
+							.comp_sync(comp_sync), 
+							.hsync(hsync), 
+							.vsync(vsync), 
+							.pixel_x(pixel_x), 
+							.pixel_y(pixel_y), 
+							.start(vga_start)
+							);	
+	
+	display_pane dp0(
+							 .clk(clk_100mhz_buf),
+							 .rst(rst),
+							 .data_in(rdata),
+							 .empty(fifo_empty),
+							 .full(fifo_full),
+							 .write_en(fifo_wr_en),
+							 .mem_addr(mem_addr),
+							 .data_out(data_dp_fifo)
+							 );
+	
+	fifo_core fifo_core_gen1(	.rst(rst), // input rst
+										.wr_clk(clk_100mhz_buf), // input wr_clk
+										.rd_clk(clk_25mhz), // input rd_clk
+										//.din(fifo_test), // TESTING
+										//.wr_en(test_we), // TESTING
+										.din(data_dp_fifo), // input [23 : 0] din
+										.wr_en(fifo_wr_en), // input wr_en
+										.rd_en(fifo_re), // input rd_en
+										.dout(fifo_data_out), // output [23 : 0] dout
+										.full(fifo_full), // output full
+										.empty(fifo_empty) // output empty
+										);
+	
+	draw_logic draw0(.clk(clk_25mhz), 
+							.rst(rst), 
+							.pixel_x(pixel_x), 
+							.pixel_y(pixel_y), 
+							.pixel_r(pixel_r), 
+							.pixel_g(pixel_g), 
+							.pixel_b(pixel_b), 
+							.rom_color(fifo_data_out), 
+							.fifo_empty(fifo_empty)
+							);
+	
+	picture_rom pic_rom0(	.clka(clk_100mhz_buf), // input clka
+									.rsta(rst|~locked_dcm), // input rsta
+									.addra(mem_addr), // input [12 : 0] addra
+									.douta(rdata) // output [23 : 0] douta
+									);
 
 endmodule

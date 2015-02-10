@@ -3,7 +3,7 @@
 module rom(
 	input clk,
 	input rst,
-	input [23:0] addr, 
+	input [12:0] addr, 
 	output reg [23:0] rdata);
 	
 

@@ -47,6 +47,8 @@ _ngo/
 *.xml
 xlnx_auto_0_xdb/
 *.csv
+*.spl
+*.sym
 #############
 ##Modelsim
 #############

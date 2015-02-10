@@ -3,7 +3,9 @@ module display_pane_tb();
 
 	reg stm_clk, stm_rst, stm_empty, stm_full;
 	reg [23:0] stm_data_in;
-	wire [23:0] mem_addr_mon, data_out_mon;
+	wire [23:0] data_out_mon;
+	wire [12:0] mem_addr_mon;
+	wire write_en_mon;
 
 	display_pane dp0(
     		.clk(stm_clk),
@@ -12,7 +14,8 @@ module display_pane_tb();
     		.empty(stm_empty),
     		.full(stm_full),
     		.mem_addr(mem_addr_mon),
-    		.data_out(data_out_mon)
+    		.data_out(data_out_mon),
+		.write_en(write_en_mon)
     		);
 
 	always
@@ -38,7 +41,12 @@ module display_pane_tb();
 		repeat(2)@(posedge stm_clk);
 		stm_empty = 0;
 
-		repeat(512) @ (posedge stm_clk);
+		repeat(1000) @ (posedge stm_clk);
+
+		while((mem_addr_mon != 13'h0)) begin
+			@(posedge stm_clk);
+			$display(mem_addr_mon);
+		end
 		
 		$stop();
 	end
