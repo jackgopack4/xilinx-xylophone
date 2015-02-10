@@ -153,7 +153,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	
 	fifo_core fifo_core_gen1(	.rst(rst), // input rst
 										.wr_clk(clk_100mhz_buf), // input wr_clk
-										.rd_clk(clk_25mhz), // input rd_clk
+										.rd_clk(~clk_25mhz), // input rd_clk
 										//.din(fifo_test), // TESTING
 										//.wr_en(test_we), // TESTING
 										.din(data_dp_fifo), // input [23 : 0] din

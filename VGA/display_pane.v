@@ -40,14 +40,14 @@ module display_pane(
 	reg inc_curr_addr, inc_v_count, inc_x_count, inc_h_count;
 	reg load_start_addr;
 
-	reg [2:0] back_door;
+	reg [15:0] back_door;
 
 	reg state, nxt_state;
 	always @ (posedge clk, posedge rst)
 		if(rst)
 			state <= 0;
 		else
-			state <= nxt_state; 
+			state <= nxt_state;
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
@@ -89,9 +89,9 @@ module display_pane(
 
 	always @ (posedge clk, posedge rst)
 		if(rst)
-			back_door <= 3'h0;
+			back_door <= 16'h0;
 		else if(rst_back_door)
-			back_door <= 3'h0;
+			back_door <= 16'h0;
 		else
 			back_door <= back_door + 1;
 
@@ -129,11 +129,10 @@ module display_pane(
  
 					load_start_addr = (&v_count) & rst_x_count;
 					
-					rst_addr = (curr_addr == 13'h12bf) & inc_curr_addr & (x_count == 8'h4f) & (&v_count); // rst_x_count, &v_count
+					rst_addr = (curr_addr == 13'h12bf) & inc_curr_addr & (x_count == 8'h4f) & (&v_count);
 				end
 				else begin
-					nxt_state = WAIT;
-					rst_back_door = 1;
+					nxt_state = LOAD;
 				end
 			end
 		endcase
