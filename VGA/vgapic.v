@@ -19,7 +19,10 @@
 // Top module for outputting VGA outputs to display picture
 //////////////////////////////////////////////////////////////////////////////////
 module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, clk, clk_n, D, dvi_rst, scl_tri, sda_tri);
-
+	
+	//////////////////////
+	// Inputs / Outputs //
+	//////////////////////
 	input clk_100mhz;
 	input rst;
 
@@ -29,8 +32,8 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	output dvi_rst;
 
 	output [7:0] pixel_r;
-    output [7:0] pixel_g;
-    output [7:0] pixel_b;
+   output [7:0] pixel_g;
+   output [7:0] pixel_b;
 	 
 	output [11:0] D;
 	 
@@ -38,7 +41,8 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	output clk_n;
 
 	inout scl_tri, sda_tri;
-	 
+	
+	// Wires for Assignments
 	wire [9:0] pixel_x;
 	wire [9:0] pixel_y;
 	wire [23:0] pixel_gbrg;
@@ -72,24 +76,6 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	reg start_display;
 	
 	wire fifo_re;
-	
-	/*/ TESTING //
-	reg [9:0] pixel_count;
-	wire [23:0] fifo_test;
-	wire test_we;
-	
-	always @ (posedge clk_100mhz_buf, posedge rst)
-		if(rst)
-			pixel_count <= 10'h0;
-		else if(pixel_count == 10'h27f)
-			pixel_count <= 10'h0;
-		else
-			pixel_count <= pixel_count + 1;
-			
-	assign test_we = 1'b1;
-			
-	assign fifo_test = (pixel_count < 10'd319) ? 24'hff0000 : 24'h00ff00;
-	///////////*/
 
 	//DVI Interface
 	assign dvi_rst = ~(rst|~locked_dcm);
@@ -105,19 +91,8 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 						.IIC_xfer_done(iic_tx_done),        // IIC configuration done
 						.init_IIC_xfer(1'b0)                // IIC configuration request
 						);
-
-	/*
-	always@(posedge clk_100mhz_buf, posedge rst) begin
-		if(rst) begin
-			start_display <= 1'b0;
-		end
-		// Starting when fifo not empty, changed from waiting to be full
-		else if(~fifo_empty) begin
-			start_display <= 1'b1;
-		end
-	end
-	*/
 	
+	// Asignments for when Machine sohuld start reading
 	assign fifo_re = blank & ~fifo_empty;
 	assign vga_start = ~fifo_empty;
 	
@@ -158,8 +133,6 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	fifo_core fifo_core_gen1(	.rst(rst), // input rst
 										.wr_clk(clk_100mhz_buf), // input wr_clk
 										.rd_clk(~clk_25mhz), // input rd_clk
-										//.din(fifo_test), // TESTING
-										//.wr_en(test_we), // TESTING
 										.din(data_dp_fifo), // input [23 : 0] din
 										.wr_en(fifo_wr_en), // input wr_en
 										.rd_en(fifo_re), // input rd_en

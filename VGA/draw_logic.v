@@ -31,6 +31,7 @@ module draw_logic(clk, rst, pixel_x, pixel_y, pixel_r, pixel_g, pixel_b, rom_col
     output reg [7:0] pixel_g;
     output reg [7:0] pixel_b;
 
+	 // Write using State Machine waiting for correct signal to start displaying
     always@(*) begin
 		pixel_r = 8'h00;
 		pixel_g = 8'h00;
