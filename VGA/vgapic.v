@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: ECE554
+// Engineer: Manjot Pal, John Peterson, Tim Zodrow
 // 
 // Create Date:    16:13:56 02/10/2014 
 // Design Name: 
 // Module Name:    vgapic 
-// Project Name: 
-// Target Devices: 
+// Project Name: Miniproject 2 - VGA
+// Target Devices: Virtex-5
 // Tool versions: 
 // Description: 
 //
@@ -16,7 +16,7 @@
 // Revision: 
 // Revision 0.01 - File Created
 // Additional Comments: 
-//
+// Top module for outputting VGA outputs to display picture
 //////////////////////////////////////////////////////////////////////////////////
 module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, clk, clk_n, D, dvi_rst, scl_tri, sda_tri);
 
@@ -121,6 +121,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 	assign fifo_re = blank & ~fifo_empty;
 	assign vga_start = ~fifo_empty;
 	
+	// Clock generator for 100MHz and 25MHz clocks
 	vga_clk vga_clk_gen1 (	.CLKIN_IN(clk_100mhz), 
 									.RST_IN(rst), 
 									.CLKDV_OUT(clk_25mhz), 
@@ -129,6 +130,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 									.LOCKED_OUT(locked_dcm)
 									);
 	
+	// Timing logic for VGA signal
 	vga_logic vgal1(	.clk(clk_25mhz), 
 							.rst(rst|~locked_dcm), 
 							.blank(blank), 
@@ -140,6 +142,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 							.start(vga_start)
 							);	
 	
+	// writes data from ROM to FIFO
 	display_pane dp0(
 							 .clk(clk_100mhz_buf),
 							 .rst(rst),
@@ -151,6 +154,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 							 .data_out(data_dp_fifo)
 							 );
 	
+	// Cross clock FIFO: receives data from ROM, provides data to VGA signal processing
 	fifo_core fifo_core_gen1(	.rst(rst), // input rst
 										.wr_clk(clk_100mhz_buf), // input wr_clk
 										.rd_clk(clk_25mhz), // input rd_clk
@@ -164,6 +168,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 										.empty(fifo_empty) // output empty
 										);
 	
+	// Sends color/pixel information to be combined with timing information
 	draw_logic draw0(.clk(clk_25mhz), 
 							.rst(rst), 
 							.pixel_x(pixel_x), 
@@ -175,6 +180,7 @@ module vgapic(clk_100mhz, rst, pixel_r, pixel_g, pixel_b, hsync, vsync, blank, c
 							.fifo_empty(fifo_empty)
 							);
 	
+	// Rom module that stores picture data
 	picture_rom pic_rom0(	.clka(clk_100mhz_buf), // input clka
 									.rsta(rst|~locked_dcm), // input rsta
 									.addra(mem_addr), // input [12 : 0] addra

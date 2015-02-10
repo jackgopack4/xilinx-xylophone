@@ -1,5 +1,23 @@
 `timescale 1ns / 1ps
-// Comments
+//////////////////////////////////////////////////////////////////////////////////
+// Company: ECE554
+// Engineer: Manjot Pal, John Peterson, Tim Zodrow
+// 
+// Create Date:    17:26:39 02/04/2015 
+// Design Name: 
+// Module Name:    rom 
+// Project Name: Miniproject 2 - VGA
+// Target Devices: Virtex-5
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+// Reads data from small 80x60 image in memory
+//////////////////////////////////////////////////////////////////////////////////
 module rom(
 	input clk,
 	input rst,
