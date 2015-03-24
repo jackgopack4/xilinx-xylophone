@@ -1,0 +1,15 @@
+module ALU(src0, src1, func, dst, ov, zr, neg);
+
+input [15:0] src0, src1;
+input func;
+output [15:0] dst;
+output ov, zr, neg;
+
+localparam ADD = 4'b0000;
+
+assign dst = (func == ADD) ? (src0 + src1) : -1;
+
+
+
+
+endmodule

@@ -1,0 +1,570 @@
+module t_ALU();
+    
+   reg [16:0] src0, src1;
+   reg [3:0] func, shamt;
+   wire [15:0] dst;
+   wire ov, sr, neg;
+   
+   wire [1:0] sel,ctl;
+
+   assign sel = func[1:0];
+   assign ctl = func[3:2];
+
+   localparam ADD     = 4'b0000;
+   localparam PADDSB  = 4'b0001;
+   localparam SUB     = 4'b0010;
+   localparam AND     = 4'b0011;
+   localparam NOR     = 4'b0100;
+   localparam SLL     = 4'b0101;
+   localparam SRL     = 4'b0110;
+   localparam SRA     = 4'b0111;
+   localparam LLB     = 4'b1010;
+   localparam LHB     = 4'b1011;
+   
+/////////// Instantiate DUT ////////// 
+   ALU DUT(.src0(src0[15:0]), .src1(src1[15:0]), .op(func), .shamt(shamt),
+           .dst(dst), .ov(ov), .zr(zr), .neg(neg));   
+           // We won't need 'shamt' since it will be grabbed from
+           // src1 as the immidiate field
+    
+ initial begin  
+ 
+ 
+   // ADD 
+   // Exhaustive Check
+   // testing up to src size 2^15-1 since input is 2's-compliment.
+   // Can we ADD negative numbers/how would we test this?
+   $display("********************ADD********************");
+   #5
+   func = ADD;   //4'b0000;
+   src0 = 16'b0000000000000000;
+   src1 = 16'b0000000000000000;
+   #5  
+   for (src0 = 0; src0 < 32767; src0 = src0 + 1000) begin
+   #5
+      for (src1 = 0; src1 < 32767; src1 = src1 + 100) begin 
+		   #5           
+			// Self check output   
+			if (src0 + src1 > 32767) begin
+				if (dst != 32767) begin
+					$display("*ERROR* ADD saturation fault"); 
+				end 
+			   if (ov != 1) begin
+			      $display("*ERROR* ADD overflow fault");        
+			   end
+			end 
+			else if (src0 + src1 != dst) begin      
+				$display("*ERROR* ADD fault");
+			end
+			$display("src0=%d, src1=%d, dst=%d", src0, src1, dst);
+      end 
+   end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0000;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5 
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+*/ 
+ 
+   // PADDSB 
+   // Exhaustive Check
+   // testing up to src size 2^7-1 since input is 2's-compliment and 8-bit.
+   // Can we ADD negative numbers/how would we test this?
+   $display("********************PADDSB********************");
+   #5
+   func = PADDSB;   //4'b0001;
+   src0 = 16'b0000000000000000;
+   src1 = 16'b0000000000000000;
+   #5  
+   for (src0 = 0; src0 < 32767; src0 = src0 + 1) begin
+   #5
+      for (src1 = 0; src1 < 32767; src1 = src1 + 1) begin 
+		   #5           
+			// Self check output   
+			if (src0[7:0] + src1[7:0] > 127) begin
+				if (dst[7:0] != 127) begin
+					$display("*ERROR* PADDSB ADD[7:0] saturation fault"); 
+				end 
+			end 
+			if (src0[15:9] + src1[15:9] > 127) begin
+			   if (dst[15:9] != 127) begin
+					$display("*ERROR* PADDSB ADD[15:9] saturation fault"); 
+				end 
+			end
+			if (src0[7:0] + src1[7:0] < -128) begin
+				if (dst[7:0] != 127) begin
+					$display("*ERROR* PADDSB SUB[7:0] saturation fault"); 
+				end 
+			end 
+			if (src0[15:9] + src1[15:9] < -128) begin
+			   if (dst[15:9] != 127) begin
+					$display("*ERROR* PADDSB SUB[15:9] saturation fault"); 
+				end 
+			end
+			if ((src0[7:0] + src1[7:0] < 127) 
+			   && (src0[15:9] + src1[15:9] < 127)
+			   && (src0[7:0] + src1[7:0] > -128)
+			   && (src0[15:9] + src1[15:9] > -128)
+			   && ((src0[7:0] + src1[7:0] != dst[7:0])
+			   || (src0[15:9] + src1[15:9] != dst[15:9]))) begin      
+				$display("*ERROR* PADDSB fault");
+			end 
+       end 
+    end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0001;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if (src0 + src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ */
+ 
+ 
+   // SUB
+   // Exhaustive Check
+   // testing up to src size 2^15-1 since input is 2's-compliment.
+   // Saturation should be at -2^15 since input is 2's-compliment.
+   // Can we SUB negative numbers/how would we test this?
+   $display("********************SUB********************");
+   #5
+   func = SUB;   //4'b0010;
+   src0 = 16'b0000000000000000;
+   src1 = 16'b0000000000000000;
+   #5  
+   for (src0 = 0; src0 < 32767; src0 = src0 + 1) begin
+   #5
+      for (src1 = 0; src1 < 32767; src1 = src1 + 1) begin 
+		   #5           
+			// Self check output   
+			if (src0 - src1 < -32768) begin
+				if (dst != -32768) begin
+					$display("*ERROR* SUB saturation fault"); 
+				end
+				if (ov != 1) begin
+			      $display("*ERROR* SUB overflow fault");        
+			   end 
+			end 
+			else if (src0 - src1 != dst) begin      
+				$display("*ERROR* SUB fault");
+			end 
+       end 
+    end
+ /* Non-Exhaustive Check
+ #5
+ func = 4'b0010;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5
+ // Self check output     
+   if (src0 - src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if (src0 - src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if (src0 - src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ */
+ 
+ 
+ 
+ // AND 
+ // Exhaustive Check
+ // Checking values up to 2^16-1 since not 2's-compliment?
+ $display("********************AND********************");
+#5
+func = AND;   //4'b0011;
+src0 = 16'b0000000000000000;
+src1 = 16'b0000000000000000;
+#5  
+   for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  
+      #5
+      for (src1 = 0; src1 < 65535; src1 = src1 + 1) begin 
+		   #5           
+			// Self check output   
+         if (src0 && src1 != dst) begin      
+			   $display("*ERROR* AND fault");
+		   end
+		   if ((src0 && src1 == 0) && (zr != 1)) begin
+			   $display("*ERROR* AND overflow fault");        
+			end  
+      end 
+   end
+/* 
+ #5 Non-Exhaustive Check
+ func = 4'b0011;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5
+ // Self check output     
+   if (src0 && src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if (src0 && src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if (src0 && src1 != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+*/ 
+ 
+ 
+ // NOR
+ // Exhaustive Check
+ // Checking values up to 2^16-1 since not 2's-compliment?
+ $display("********************NOR********************");
+#5
+func = NOR;   //4'b0100;
+src0 = 16'b0000000000000000;
+src1 = 16'b0000000000000000;
+#5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin
+      #5
+      for (src1 = 0; src1 < 65535; src1 = src1 + 1) begin 
+		   #5           
+			// Self check output   
+         if (!(src0 || src1) != dst) begin      
+			   $display("*ERROR* NOR fault");
+		   end
+		   if ((!(src0 || src1) == 0) && (zr != 1)) begin
+			   $display("*ERROR* NOR overflow fault");        
+			end  
+      end 
+   end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0100;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5
+ // Self check output     
+   if (!(src0 || src1) != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if (!(src0 || src1) != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if (!(src0 || src1) != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+*/
+ 
+ 
+ // SLL
+ // Exhaustive Check
+ // Checking values up to 2^16-1 since not 2's-compliment?
+ $display("********************SLL********************");
+#5
+func = SLL;   //4'b0101;
+src0 = 16'b0000000000000000;
+src1 = 16'b0000000000000000; // shift amount
+#5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  // test up to 2^15-1
+    #5
+         // testing shift amount up to 15. imm/shift amount = src[3:0]
+         for (src1 = 0; src1 < 16; src1 = src1 + 1) begin 
+			   #5           
+			   // Self check output   
+			   if (src0 << src1 != dst) begin      
+			   	   $display("*ERROR* SLL fault");
+			   end 
+         end 
+    end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0101;
+ src0 = 16'b0010000110010001;
+ //src1 = 16'b0000010001100001;
+ shamt = 4'b0001;
+ #5
+ // Self check output     
+   if (src0 << shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ //src1 = 16'b0010010001100001;
+ shamt = 4'b0010;
+ #5
+ // Self check output     
+   if (src0 << shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ //src1 = 16'b0010000100011011;
+ shamt = 4'b0100;
+ #5
+ // Self check output     
+   if (src0 << shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ */
+ 
+ 
+ 
+// SRL
+// Exhaustive Check
+// Checking values up to 2^16-1 since not 2's-compliment?
+$display("********************SRL********************");
+#5
+func = SRL;   //4'b0110;
+src0 = 16'b0000000000000000;
+src1 = 16'b0000000000000000; // shift amount
+#5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  // test up to 2^15-1
+    #5
+         // testing shift amount up to 15. imm/shift amount = src[3:0]
+         for (src1 = 0; src1 < 16; src1 = src1 + 1) begin 
+			   #5           
+			   // Self check output   
+			   if (src0 >> src1 != dst) begin      
+			   	   $display("*ERROR* SRL fault");
+			   end 
+         end 
+    end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0110;
+ src0 = 16'b0010000110010001;
+ //src1 = 16'b0000010001100001;
+ shamt = 4'b0001;
+ #5
+ // Self check output     
+   if (src0 >> shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ //src1 = 16'b0010010001100001;
+ shamt = 4'b0010;
+ #5
+ // Self check output     
+   if (src0 >> shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ //src1 = 16'b0010000100011011;
+ shamt = 4'b0100;
+ #5
+ // Self check output     
+   if (src0 >> shamt != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ */
+ 
+ 
+// SRA
+// Exhaustive Check
+// Checking values up to 2^16-1 since not 2's-compliment?
+$display("********************SRA********************");
+#5
+func = SRA;   //4'b0111;
+src0 = 16'b0000000000000000;
+src1 = 16'b0000000000000000; // shift amount
+#5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  // test up to 2^15-1
+    #5
+       // testing shift amount up to 15. imm/shift amount = src[3:0]
+       for (src1 = 0; src1 < 16; src1 = src1 + 1) begin 
+		    #5           
+			 // Self check output   
+		    if ({src0[0], (src0[15:1] >> shamt)} != dst) begin      
+	      	   $display("*ERROR* SRA fault");
+			 end 
+       end 
+    end
+/* Non-Exhaustive Check
+ #5
+ func = 4'b0111;
+ src0 = 16'b0010000110010001;
+ //src1 = 16'b0000010001100001;
+ shamt = 4'b0001;
+ #5
+ // Self check output     
+   if ({src0[0], (src0[15:1] >> shamt)} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ //src1 = 16'b0010010001100001;
+ shamt = 4'b0010;
+ #5
+ // Self check output     
+   if ({src0[0], (src0[15:1] >> shamt)} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ //src1 = 16'b0010000100011011;
+ shamt = 4'b0100;
+ #5
+ // Self check output     
+   if ({src0[0], (src0[15:1] >> shamt)} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+*/
+   
+ 
+ // LLB
+ // Exhaustive Check
+ // Checking values up to 2^16-1 since not 2's-compliment?
+ $display("********************LLB********************");
+ #5
+ func = LLB;   //4'b1010;
+ src0 = 16'b0000000000000000; // register to load lower bits into
+ src1 = 16'b0000000000000000; // sign-extended value to load
+ #5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  // test up to 2^15-1
+    #5
+       // testing shift amount up to 15. imm/shift amount = src[3:0]
+       for (src1 = 0; src1 < 256; src1 = src1 + 1) begin // testing up to 8 bits, 2^8-1
+		    #5           
+			 // Self check output   
+		    if ({src0[15:8], src1[7:0]} != dst) begin      
+	      	   $display("*ERROR* LLB fault");
+			 end 
+       end 
+    end
+ /* Non-Exhaustive Check
+ #5
+ func = 4'b1010;
+ src0 = 16'b0010000110010001; // register to load lower bits into
+ src1 = 16'b0000010001100001; // sign-extended value to load
+ #5
+ // Self check output     
+   if ({src0[15:8], src1[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if ({src0[15:8], src1[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if ({src0[15:8], src1[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ */
+ 
+ 
+ 
+ // LHB
+ // Exhaustive Check
+ // Checking values up to 2^16-1 since not 2's-compliment?
+ $display("********************LHB********************");
+ #5
+ func = LHB;   //4'b1011;
+ src0 = 16'b0000000000000000; // register to load lower bits into
+ src1 = 16'b0000000000000000; // sign-extended value to load
+ #5  
+    for (src0 = 0; src0 < 65535; src0 = src0 + 1) begin  // test up to 2^15-1
+    #5
+       // testing shift amount up to 15. imm/shift amount = src[3:0]
+       for (src1 = 0; src1 < 256; src1 = src1 + 1) begin // testing up to 8 bits, 2^8-1
+		    #5           
+			 // Self check output   
+		    if ({src1[15:8], src0[7:0]} != dst) begin      
+	      	   $display("*ERROR* LLB fault");
+			 end 
+       end 
+    end
+ /* Non-Exhaustive Check
+ #5
+ func = 4'b1011;
+ src0 = 16'b0010000110010001;
+ src1 = 16'b0000010001100001;
+ #5
+ // Self check output     
+   if ({src1[15:8], src0[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+ src0 = 16'b0000001110000010;
+ src1 = 16'b0010010001100001;
+ #5
+ // Self check output     
+   if ({src1[15:8], src0[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end
+ src0 = 16'b0000011001000010;
+ src1 = 16'b0010000100011011;
+ #5
+ // Self check output     
+   if ({src1[15:8], src0[7:0]} != dst) begin      
+      $display("*ERROR* dst does not match"); 
+   end 
+  */ 
+   
+ $display("src0=%d, src1=%d, func=%d, dst=%d", src0, src1, func, dst);          
+
+
+
+
+
+ end // Test Input   
+    
+
+        
+endmodule

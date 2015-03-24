@@ -1,0 +1,17 @@
+module logic_tb();
+reg [15:0] A, B;
+wire [15:0] Out;
+reg Sel;
+logicmod iDUT(Out, A, B, Sel);
+initial begin
+	A=16'b1010101010101010;
+	B=16'b1010101010101010;
+	Sel=1'b0;
+	#5;
+	$display("Sample and: %b", Out);
+	Sel=1'b1;
+	#5;
+	$display("Sample nor: %b", Out);
+	$finish;
+end
+endmodule

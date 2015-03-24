@@ -1,0 +1,30 @@
+@0000 BF00	// llb R15, 0x00
+@0001 BEFF	// llb R14, 0xFF
+@0002 BD3F	// llb R13, 0x3F
+@0003 AD00	// lhb R13, 0x00
+@0004 B101	// llb R1, 0x01
+@0005 B201	// llb R2, 0x01
+@0006 B300	// llb R3, 0x00
+@0007 91FF	// sw R1, R15, 0xFF
+@0008 0FFE	// add R15, R15, R14
+@0009 0312	// add R3, R1, R2
+@000a 0120	// add R1, R2, R0
+@000b 0230	// add R2, R3, R0
+@000c 00FD	// add R0, R15, R13
+@000d C5F9	// b gt, generate_loop
+@000e 0FFE	// add R15, R15, R14
+@000f BE01	// llb R14, 0x01
+@0010 85F1	// lw R5, R15, 0x01
+@0011 95F2	// sw R5, R15, 0x02
+@0012 0FFE	// add R15, R15, R14
+@0013 85F1	// lw R5, R15, 0x01
+@0014 95F2	// sw R5, R15, 0x02
+@0015 0FFE	// add R15, R15, R14
+@0016 85F1	// lw R5, R15, 0x01
+@0017 95F2	// sw R5, R15, 0x02
+@0018 0FFE	// add R15, R15, R14
+@0019 85F1	// lw R5, R15, 0x01
+@001a 95F2	// sw R5, R15, 0x02
+@001b 0FFE	// add R15, R15, R14
+@001c C7F3	// b lt, move_loop
+@001d F000	// hlt

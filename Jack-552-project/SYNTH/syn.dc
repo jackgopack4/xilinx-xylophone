@@ -1,0 +1,17 @@
+read_file -format sverilog {./cpu.v,\
+                            ./mem_hierarchy.v,\
+                            ./prgm_cntr.v,\
+                            ./id.v,\
+                            ./src_mux.v,\
+                            ./alu.v,\
+                            ./dst_mux.v,\
+                            ./br_bool.v,\
+                            ./cache_controller.v}
+current_design cpu
+create_clock -name "clk" -period 1.25 -waveform {0 0.625} { clk }
+set_dont_touch_network [find port clk]
+set_input_delay -clock clk 0.2 [find port rst_n]
+set_drive 0.1 rst_n
+compile -map_effort medium
+report_timing > timing
+report_area > area
