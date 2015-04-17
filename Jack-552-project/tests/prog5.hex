@@ -1,0 +1,6 @@
+@0000 B17F	// llb R1, 0x7F
+@0001 B201	// llb R2, 0x01
+@0002 2112	// Repeat: sub R1, R1, R2
+@0003 C1FE	// b neq, Repeat
+@0004 F000	// hlt
+@0005 0300	// add R3, R0, R0

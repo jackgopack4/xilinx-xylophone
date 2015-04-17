@@ -1,0 +1,6105 @@
+rst assert
+
+State = IDLE
+State = IDLE
+instr=zzzz
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=    x    x    x    x    x    x    x    x    x    x    x    x    x
+
+
+rst deassert
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+
+
+clk=    0    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=    1    1    1    1    1    1    1    1    1    1    1    1    1
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+
+
+clk=    2    2    2    2    2    2    2    2    2    2    2    2    2
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=    3    3    3    3    3    3    3    3    3    3    3    3    3
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00000 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+
+
+clk=    4    4    4    4    4    4    4    4    4    4    4    4    4
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=b101
+stall_pc=z, i_rdy=1, stall_IM_ID=x, iaddr=0000, flow_change_ID_EX=x,zr=x,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=    5    5    5    5    5    5    5    5    5    5    5    5    5
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=b101
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0000, flow_change_ID_EX=0,zr=1,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+
+
+clk=    6    6    6    6    6    6    6    6    6    6    6    6    6
+
+
+State = READ_ICACHE
+iCache valid, instr=b101
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0000, flow_change_ID_EX=0,zr=1,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=    7    7    7    7    7    7    7    7    7    7    7    7    7
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=b202
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0001, flow_change_ID_EX=0,zr=1,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+
+
+clk=    8    8    8    8    8    8    8    8    8    8    8    8    8
+
+
+State = READ_ICACHE
+iCache valid, instr=b202
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0001, flow_change_ID_EX=0,zr=1,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=x
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=    9    9    9    9    9    9    9    9    9    9    9    9    9
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb20
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0002, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0000, rf_dst_addr_DM_WB=0
+
+
+
+clk=   10   10   10   10   10   10   10   10   10   10   10   10   10
+
+
+State = READ_ICACHE
+iCache valid, instr=bb20
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0002, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0000, rf_dst_addr_DM_WB=0
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   11   11   11   11   11   11   11   11   11   11   11   11   11
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc20
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0003, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0000, rf_dst_addr_DM_WB=0
+
+
+
+clk=   12   12   12   12   12   12   12   12   12   12   12   12   12
+
+
+State = READ_ICACHE
+iCache valid, instr=bc20
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0003, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0000, rf_dst_addr_DM_WB=0
+
+R00000000 = 0000
+R00000001 = xxxx
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   13   13   13   13   13   13   13   13   13   13   13   13   13
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+
+
+clk=   14   14   14   14   14   14   14   14   14   14   14   14   14
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   15   15   15   15   15   15   15   15   15   15   15   15   15
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+
+
+clk=   16   16   16   16   16   16   16   16   16   16   16   16   16
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   17   17   17   17   17   17   17   17   17   17   17   17   17
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00001 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+
+
+clk=   18   18   18   18   18   18   18   18   18   18   18   18   18
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=ac01
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0004, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = xxxx
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   19   19   19   19   19   19   19   19   19   19   19   19   19
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=91b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0005, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0002, rf_dst_addr_DM_WB=2
+
+
+
+clk=   20   20   20   20   20   20   20   20   20   20   20   20   20
+
+
+State = READ_ICACHE
+iCache valid, instr=91b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0005, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0002, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = xxxx
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   21   21   21   21   21   21   21   21   21   21   21   21   21
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=92c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0006, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=b
+
+
+
+clk=   22   22   22   22   22   22   22   22   22   22   22   22   22
+
+
+State = READ_ICACHE
+iCache valid, instr=92c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0006, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = xxxx
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   23   23   23   23   23   23   23   23   23   23   23   23   23
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0020
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=83b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0007, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=c
+
+
+
+clk=   24   24   24   24   24   24   24   24   24   24   24   24   24
+
+
+State = READ_ICACHE
+iCache valid, instr=83b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0007, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0020
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   25   25   25   25   25   25   25   25   25   25   25   25   25
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   26   26   26   26   26   26   26   26   26   26   26   26   26
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   27   27   27   27   27   27   27   27   27   27   27   27   27
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   28   28   28   28   28   28   28   28   28   28   28   28   28
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   29   29   29   29   29   29   29   29   29   29   29   29   29
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01000 with toggle=0
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   30   30   30   30   30   30   30   30   30   30   30   30   30
+
+
+State = WRITE_DCACHE
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01000 with toggle=1
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   31   31   31   31   31   31   31   31   31   31   31   31   31
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   32   32   32   32   32   32   32   32   32   32   32   32   32
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   33   33   33   33   33   33   33   33   33   33   33   33   33
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   34   34   34   34   34   34   34   34   34   34   34   34   34
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00010 with toggle=1
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   35   35   35   35   35   35   35   35   35   35   35   35   35
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=84c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0008, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=c
+
+
+
+clk=   36   36   36   36   36   36   36   36   36   36   36   36   36
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   37   37   37   37   37   37   37   37   37   37   37   37   37
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+
+
+clk=   38   38   38   38   38   38   38   38   38   38   38   38   38
+
+
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   39   39   39   39   39   39   39   39   39   39   39   39   39
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+
+
+clk=   40   40   40   40   40   40   40   40   40   40   40   40   40
+
+
+State = DCACHE_TO_MEM
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   41   41   41   41   41   41   41   41   41   41   41   41   41
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+
+
+clk=   42   42   42   42   42   42   42   42   42   42   42   42   42
+
+
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   43   43   43   43   43   43   43   43   43   43   43   43   43
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+
+
+clk=   44   44   44   44   44   44   44   44   44   44   44   44   44
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 01000 with toggle=0
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   45   45   45   45   45   45   45   45   45   45   45   45   45
+
+
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01000 with toggle=1
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+
+
+clk=   46   46   46   46   46   46   46   46   46   46   46   46   46
+
+
+State = READ_ICACHE
+iCache valid, instr=bb30
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0009, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0020, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   47   47   47   47   47   47   47   47   47   47   47   47   47
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   48   48   48   48   48   48   48   48   48   48   48   48   48
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   49   49   49   49   49   49   49   49   49   49   49   49   49
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   50   50   50   50   50   50   50   50   50   50   50   50   50
+
+
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   51   51   51   51   51   51   51   51   51   51   51   51   51
+
+
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   52   52   52   52   52   52   52   52   52   52   52   52   52
+
+
+State = MEM_TO_DCACHE
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   53   53   53   53   53   53   53   53   53   53   53   53   53
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   54   54   54   54   54   54   54   54   54   54   54   54   54
+
+
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   55   55   55   55   55   55   55   55   55   55   55   55   55
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxx0002, LRU bit=x
+Writing upper half of cache line 01000 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   56   56   56   56   56   56   56   56   56   56   56   56   56
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+instr=bc30
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=   57   57   57   57   57   57   57   57   57   57   57   57   57
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = xxxx
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=bc30
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0120, rf_dst_addr_DM_WB=2
+
+
+
+clk=   58   58   58   58   58   58   58   58   58   58   58   58   58
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   59   59   59   59   59   59   59   59   59   59   59   59   59
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+
+
+clk=   60   60   60   60   60   60   60   60   60   60   60   60   60
+
+
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   61   61   61   61   61   61   61   61   61   61   61   61   61
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+
+
+clk=   62   62   62   62   62   62   62   62   62   62   62   62   62
+
+
+State = MEM_TO_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 01000 with toggle=0
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   63   63   63   63   63   63   63   63   63   63   63   63   63
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+
+
+clk=   64   64   64   64   64   64   64   64   64   64   64   64   64
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=ac01
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=3
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=   65   65   65   65   65   65   65   65   65   65   65   65   65
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+
+
+clk=   66   66   66   66   66   66   66   66   66   66   66   66   66
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   67   67   67   67   67   67   67   67   67   67   67   67   67
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+
+
+clk=   68   68   68   68   68   68   68   68   68   68   68   68   68
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   69   69   69   69   69   69   69   69   69   69   69   69   69
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00011 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+
+
+clk=   70   70   70   70   70   70   70   70   70   70   70   70   70
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=91b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=4
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0020
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   71   71   71   71   71   71   71   71   71   71   71   71   71
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=92c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=b
+
+
+
+clk=   72   72   72   72   72   72   72   72   72   72   72   72   72
+
+
+State = READ_ICACHE
+iCache valid, instr=92c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0120
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   73   73   73   73   73   73   73   73   73   73   73   73   73
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0030
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=85b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=c
+
+
+
+clk=   74   74   74   74   74   74   74   74   74   74   74   74   74
+
+
+State = READ_ICACHE
+iCache valid, instr=85b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0030
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   75   75   75   75   75   75   75   75   75   75   75   75   75
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+
+
+clk=   76   76   76   76   76   76   76   76   76   76   76   76   76
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   77   77   77   77   77   77   77   77   77   77   77   77   77
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+
+
+clk=   78   78   78   78   78   78   78   78   78   78   78   78   78
+
+
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   79   79   79   79   79   79   79   79   79   79   79   79   79
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01100 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+
+
+clk=   80   80   80   80   80   80   80   80   80   80   80   80   80
+
+
+State = WRITE_DCACHE
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01100 with toggle=1
+instr=86c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   81   81   81   81   81   81   81   81   81   81   81   81   81
+
+
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=86c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=000f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=c
+
+
+
+clk=   82   82   82   82   82   82   82   82   82   82   82   82   82
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   83   83   83   83   83   83   83   83   83   83   83   83   83
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   84   84   84   84   84   84   84   84   84   84   84   84   84
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   85   85   85   85   85   85   85   85   85   85   85   85   85
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   86   86   86   86   86   86   86   86   86   86   86   86   86
+
+
+State = DCACHE_TO_MEM
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   87   87   87   87   87   87   87   87   87   87   87   87   87
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   88   88   88   88   88   88   88   88   88   88   88   88   88
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   89   89   89   89   89   89   89   89   89   89   89   89   89
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   90   90   90   90   90   90   90   90   90   90   90   90   90
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 01100 with toggle=0
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   91   91   91   91   91   91   91   91   91   91   91   91   91
+
+
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 01100 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   92   92   92   92   92   92   92   92   92   92   92   92   92
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   93   93   93   93   93   93   93   93   93   93   93   93   93
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   94   94   94   94   94   94   94   94   94   94   94   94   94
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=   95   95   95   95   95   95   95   95   95   95   95   95   95
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00100 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+
+
+clk=   96   96   96   96   96   96   96   96   96   96   96   96   96
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=bb40
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0010, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0030, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   97   97   97   97   97   97   97   97   97   97   97   97   97
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=   98   98   98   98   98   98   98   98   98   98   98   98   98
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=   99   99   99   99   99   99   99   99   99   99   99   99   99
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=  100  100  100  100  100  100  100  100  100  100  100  100  100
+
+
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  101  101  101  101  101  101  101  101  101  101  101  101  101
+
+
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=  102  102  102  102  102  102  102  102  102  102  102  102  102
+
+
+State = MEM_TO_DCACHE
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  103  103  103  103  103  103  103  103  103  103  103  103  103
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=  104  104  104  104  104  104  104  104  104  104  104  104  104
+
+
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  105  105  105  105  105  105  105  105  105  105  105  105  105
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxx0002, LRU bit=x
+Writing upper half of cache line 01100 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=  106  106  106  106  106  106  106  106  106  106  106  106  106
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+instr=bc40
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  107  107  107  107  107  107  107  107  107  107  107  107  107
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = xxxx
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=bc40
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0011, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0130, rf_dst_addr_DM_WB=2
+
+
+
+clk=  108  108  108  108  108  108  108  108  108  108  108  108  108
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  109  109  109  109  109  109  109  109  109  109  109  109  109
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+
+
+clk=  110  110  110  110  110  110  110  110  110  110  110  110  110
+
+
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  111  111  111  111  111  111  111  111  111  111  111  111  111
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+
+
+clk=  112  112  112  112  112  112  112  112  112  112  112  112  112
+
+
+State = MEM_TO_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 01100 with toggle=0
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  113  113  113  113  113  113  113  113  113  113  113  113  113
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+
+
+clk=  114  114  114  114  114  114  114  114  114  114  114  114  114
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=ac01
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0012, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=5
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  115  115  115  115  115  115  115  115  115  115  115  115  115
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=91b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0013, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=6
+
+
+
+clk=  116  116  116  116  116  116  116  116  116  116  116  116  116
+
+
+State = READ_ICACHE
+iCache valid, instr=91b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0013, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=6
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0030
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  117  117  117  117  117  117  117  117  117  117  117  117  117
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+
+
+clk=  118  118  118  118  118  118  118  118  118  118  118  118  118
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  119  119  119  119  119  119  119  119  119  119  119  119  119
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+
+
+clk=  120  120  120  120  120  120  120  120  120  120  120  120  120
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  121  121  121  121  121  121  121  121  121  121  121  121  121
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00101 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+
+
+clk=  122  122  122  122  122  122  122  122  122  122  122  122  122
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=92c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0014, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0130
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  123  123  123  123  123  123  123  123  123  123  123  123  123
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0040
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=87b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0015, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=c
+
+
+
+clk=  124  124  124  124  124  124  124  124  124  124  124  124  124
+
+
+State = READ_ICACHE
+iCache valid, instr=87b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0015, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0040
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  125  125  125  125  125  125  125  125  125  125  125  125  125
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+
+
+clk=  126  126  126  126  126  126  126  126  126  126  126  126  126
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  127  127  127  127  127  127  127  127  127  127  127  127  127
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+
+
+clk=  128  128  128  128  128  128  128  128  128  128  128  128  128
+
+
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  129  129  129  129  129  129  129  129  129  129  129  129  129
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10000 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+
+
+clk=  130  130  130  130  130  130  130  130  130  130  130  130  130
+
+
+State = WRITE_DCACHE
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10000 with toggle=1
+instr=88c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  131  131  131  131  131  131  131  131  131  131  131  131  131
+
+
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=88c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0016, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=c
+
+
+
+clk=  132  132  132  132  132  132  132  132  132  132  132  132  132
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  133  133  133  133  133  133  133  133  133  133  133  133  133
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+
+
+clk=  134  134  134  134  134  134  134  134  134  134  134  134  134
+
+
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  135  135  135  135  135  135  135  135  135  135  135  135  135
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+
+
+clk=  136  136  136  136  136  136  136  136  136  136  136  136  136
+
+
+State = DCACHE_TO_MEM
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  137  137  137  137  137  137  137  137  137  137  137  137  137
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+
+
+clk=  138  138  138  138  138  138  138  138  138  138  138  138  138
+
+
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  139  139  139  139  139  139  139  139  139  139  139  139  139
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+
+
+clk=  140  140  140  140  140  140  140  140  140  140  140  140  140
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 10000 with toggle=0
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  141  141  141  141  141  141  141  141  141  141  141  141  141
+
+
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10000 with toggle=1
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=bb50
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+
+
+clk=  142  142  142  142  142  142  142  142  142  142  142  142  142
+
+
+State = READ_ICACHE
+iCache valid, instr=bb50
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0017, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0040, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  143  143  143  143  143  143  143  143  143  143  143  143  143
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  144  144  144  144  144  144  144  144  144  144  144  144  144
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  145  145  145  145  145  145  145  145  145  145  145  145  145
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  146  146  146  146  146  146  146  146  146  146  146  146  146
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  147  147  147  147  147  147  147  147  147  147  147  147  147
+
+
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  148  148  148  148  148  148  148  148  148  148  148  148  148
+
+
+State = MEM_TO_DCACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  149  149  149  149  149  149  149  149  149  149  149  149  149
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  150  150  150  150  150  150  150  150  150  150  150  150  150
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  151  151  151  151  151  151  151  151  151  151  151  151  151
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxx0002, LRU bit=x
+Writing upper half of cache line 10000 with toggle=0
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  152  152  152  152  152  152  152  152  152  152  152  152  152
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+
+
+clk=  153  153  153  153  153  153  153  153  153  153  153  153  153
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  154  154  154  154  154  154  154  154  154  154  154  154  154
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+
+
+clk=  155  155  155  155  155  155  155  155  155  155  155  155  155
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  156  156  156  156  156  156  156  156  156  156  156  156  156
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00110 with toggle=1
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+
+
+clk=  157  157  157  157  157  157  157  157  157  157  157  157  157
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = xxxx
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=bc50
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0018, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0140, rf_dst_addr_DM_WB=2
+
+
+
+clk=  158  158  158  158  158  158  158  158  158  158  158  158  158
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  159  159  159  159  159  159  159  159  159  159  159  159  159
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+
+
+clk=  160  160  160  160  160  160  160  160  160  160  160  160  160
+
+
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  161  161  161  161  161  161  161  161  161  161  161  161  161
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+
+
+clk=  162  162  162  162  162  162  162  162  162  162  162  162  162
+
+
+State = MEM_TO_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 10000 with toggle=0
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  163  163  163  163  163  163  163  163  163  163  163  163  163
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=ac01
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+
+
+clk=  164  164  164  164  164  164  164  164  164  164  164  164  164
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=ac01
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=0019, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=7
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  165  165  165  165  165  165  165  165  165  165  165  165  165
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=91b0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=8
+
+
+
+clk=  166  166  166  166  166  166  166  166  166  166  166  166  166
+
+
+State = READ_ICACHE
+iCache valid, instr=91b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=001a, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=8
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0040
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  167  167  167  167  167  167  167  167  167  167  167  167  167
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=92c0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=b
+
+
+
+clk=  168  168  168  168  168  168  168  168  168  168  168  168  168
+
+
+State = READ_ICACHE
+iCache valid, instr=92c0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=001b, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=b
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0140
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  169  169  169  169  169  169  169  169  169  169  169  169  169
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+
+
+clk=  170  170  170  170  170  170  170  170  170  170  170  170  170
+
+
+State = MEM_TO_ICACHE
+State = MEM_TO_ICACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  171  171  171  171  171  171  171  171  171  171  171  171  171
+
+
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+
+
+clk=  172  172  172  172  172  172  172  172  172  172  172  172  172
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+
+
+clk=  173  173  173  173  173  173  173  173  173  173  173  173  173
+
+
+State = MEM_TO_ICACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 00111 with toggle=1
+match_hi=0, match_lo=0
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+
+
+clk=  174  174  174  174  174  174  174  174  174  174  174  174  174
+
+
+State = MEM_TO_ICACHE
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=89b0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=001c, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0050
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  175  175  175  175  175  175  175  175  175  175  175  175  175
+
+
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+
+
+clk=  176  176  176  176  176  176  176  176  176  176  176  176  176
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  177  177  177  177  177  177  177  177  177  177  177  177  177
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+
+
+clk=  178  178  178  178  178  178  178  178  178  178  178  178  178
+
+
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  179  179  179  179  179  179  179  179  179  179  179  179  179
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10100 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+
+
+clk=  180  180  180  180  180  180  180  180  180  180  180  180  180
+
+
+State = WRITE_DCACHE
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10100 with toggle=1
+instr=8ac0
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  181  181  181  181  181  181  181  181  181  181  181  181  181
+
+
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=8ac0
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=001d, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=c
+
+
+
+clk=  182  182  182  182  182  182  182  182  182  182  182  182  182
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  183  183  183  183  183  183  183  183  183  183  183  183  183
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+
+
+clk=  184  184  184  184  184  184  184  184  184  184  184  184  184
+
+
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  185  185  185  185  185  185  185  185  185  185  185  185  185
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+
+
+clk=  186  186  186  186  186  186  186  186  186  186  186  186  186
+
+
+State = DCACHE_TO_MEM
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  187  187  187  187  187  187  187  187  187  187  187  187  187
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+
+
+clk=  188  188  188  188  188  188  188  188  188  188  188  188  188
+
+
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  189  189  189  189  189  189  189  189  189  189  189  189  189
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+
+
+clk=  190  190  190  190  190  190  190  190  190  190  190  190  190
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 10100 with toggle=0
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  191  191  191  191  191  191  191  191  191  191  191  191  191
+
+
+State = WRITE_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxxxxxx, LRU bit=x
+Writing upper half of cache line 10100 with toggle=1
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=f000
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+
+
+clk=  192  192  192  192  192  192  192  192  192  192  192  192  192
+
+
+State = READ_ICACHE
+iCache valid, instr=f000
+stall_pc=z, i_rdy=1, stall_IM_ID=0, iaddr=001e, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0050, rf_dst_addr_DM_WB=1
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  193  193  193  193  193  193  193  193  193  193  193  193  193
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  194  194  194  194  194  194  194  194  194  194  194  194  194
+
+
+State = DCACHE_TO_MEM
+State = DCACHE_TO_MEM
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  195  195  195  195  195  195  195  195  195  195  195  195  195
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  196  196  196  196  196  196  196  196  196  196  196  196  196
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  197  197  197  197  197  197  197  197  197  197  197  197  197
+
+
+State = DCACHE_TO_MEM
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  198  198  198  198  198  198  198  198  198  198  198  198  198
+
+
+State = MEM_TO_DCACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  199  199  199  199  199  199  199  199  199  199  199  199  199
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  200  200  200  200  200  200  200  200  200  200  200  200  200
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  201  201  201  201  201  201  201  201  201  201  201  201  201
+
+
+State = MEM_TO_DCACHE
+memaddr=XxxxxxxxxxxxxxxxxxxX02xxxxxxxxxxxx0002, LRU bit=x
+Writing upper half of cache line 10100 with toggle=0
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  202  202  202  202  202  202  202  202  202  202  202  202  202
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  203  203  203  203  203  203  203  203  203  203  203  203  203
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = xxxx
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+iCache valid, instr=xxxx
+stall_pc=z, i_rdy=1, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0150, rf_dst_addr_DM_WB=2
+
+
+
+clk=  204  204  204  204  204  204  204  204  204  204  204  204  204
+
+
+State = IDLE
+State = IDLE
+State = IDLE
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  205  205  205  205  205  205  205  205  205  205  205  205  205
+
+
+State = MEM_TO_DCACHE
+State = MEM_TO_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+
+
+clk=  206  206  206  206  206  206  206  206  206  206  206  206  206
+
+
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  207  207  207  207  207  207  207  207  207  207  207  207  207
+
+
+match_hi=0, match_lo=1
+match_hi=0, match_lo=0
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+
+
+clk=  208  208  208  208  208  208  208  208  208  208  208  208  208
+
+
+State = MEM_TO_DCACHE
+memaddr=xxxxxxxxxxxxxxxxxxxX00xxxxxxxxxxxx0001, LRU bit=x
+Writing upper half of cache line 10100 with toggle=0
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=0
+match_hi=0, match_lo=1
+
+
+clk=  209  209  209  209  209  209  209  209  209  209  209  209  209
+
+
+State = READ_DCACHE
+State = READ_DCACHE
+State = READ_DCACHE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+
+
+clk=  210  210  210  210  210  210  210  210  210  210  210  210  210
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=xxxx
+stall_pc=z, i_rdy=1, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=0001, rf_dst_addr_DM_WB=9
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  211  211  211  211  211  211  211  211  211  211  211  211  211
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+instr=xxxx
+
+stall_pc=z, i_rdy=0, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=a
+
+
+
+clk=  212  212  212  212  212  212  212  212  212  212  212  212  212
+
+
+State = READ_ICACHE
+State = READ_ICACHE
+iCache valid, instr=xxxx
+stall_pc=z, i_rdy=1, stall_IM_ID=1, iaddr=001f, flow_change_ID_EX=0,zr=0,rf_w_data_DM_WB=xxxx, rf_dst_addr_DM_WB=a
+
+R00000000 = 0000
+R00000001 = 0001
+R00000002 = 0002
+R00000003 = 0001
+R00000004 = xxxx
+R00000005 = 0001
+R00000006 = xxxx
+R00000007 = 0001
+R00000008 = xxxx
+R00000009 = 0001
+R0000000a = xxxx
+R0000000b = 0050
+R0000000c = 0150
+R0000000d = xxxx
+R0000000e = xxxx
+R0000000f = xxxx
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+
+
+clk=  213  213  213  213  213  213  213  213  213  213  213  213  213
+
+
+State = IDLE
+State = IDLE
+match_hi=0, match_lo=1
+match_hi=0, match_lo=1
+** VVP Stop(0) **
+** Flushing output streams.
