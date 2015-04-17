@@ -49,6 +49,9 @@ xlnx_auto_0_xdb/
 *.csv
 *.spl
 *.sym
+*.tcl
+*.cdc
+*.blc
 #############
 ##Modelsim
 #############
